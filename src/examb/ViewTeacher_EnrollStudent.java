@@ -36,11 +36,11 @@ public class ViewTeacher_EnrollStudent extends javax.swing.JFrame {
 
         jLabel1.setText("Choose the course for student enrollment.");
 
-        jButton1.setText("jButton1");
+        jButton1.setText("PST");
 
-        jButton2.setText("jButton1");
+        jButton2.setText("English");
 
-        jButton3.setText("jButton1");
+        jButton3.setText("Maths");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
