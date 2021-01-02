@@ -26,9 +26,9 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="220" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jButton3" min="-2" pref="209" max="-2" attributes="0"/>
-                  <Component id="jButton2" min="-2" pref="209" max="-2" attributes="0"/>
-                  <Component id="jButton1" min="-2" pref="209" max="-2" attributes="0"/>
+                  <Component id="btnmath" min="-2" pref="209" max="-2" attributes="0"/>
+                  <Component id="btnenglish" min="-2" pref="209" max="-2" attributes="0"/>
+                  <Component id="btnpst" min="-2" pref="209" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="32767" attributes="0"/>
           </Group>
@@ -45,11 +45,11 @@
               <EmptySpace min="-2" pref="58" max="-2" attributes="0"/>
               <Component id="jLabel1" min="-2" pref="56" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
-              <Component id="jButton3" min="-2" pref="75" max="-2" attributes="0"/>
+              <Component id="btnmath" min="-2" pref="75" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Component id="jButton1" min="-2" pref="75" max="-2" attributes="0"/>
+              <Component id="btnpst" min="-2" pref="75" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="jButton2" min="-2" pref="75" max="-2" attributes="0"/>
+              <Component id="btnenglish" min="-2" pref="75" max="-2" attributes="0"/>
               <EmptySpace pref="60" max="32767" attributes="0"/>
           </Group>
       </Group>
@@ -61,20 +61,29 @@
         <Property name="text" type="java.lang.String" value="Choose the course for student enrollment."/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton1">
+    <Component class="javax.swing.JButton" name="btnpst">
       <Properties>
         <Property name="text" type="java.lang.String" value="PST"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnpstActionPerformed"/>
+      </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton2">
+    <Component class="javax.swing.JButton" name="btnenglish">
       <Properties>
         <Property name="text" type="java.lang.String" value="English"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnenglishActionPerformed"/>
+      </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton3">
+    <Component class="javax.swing.JButton" name="btnmath">
       <Properties>
         <Property name="text" type="java.lang.String" value="Maths"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnmathActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

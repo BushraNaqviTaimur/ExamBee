@@ -108,15 +108,198 @@ public class Teacher
     }
     
     
+    public ResultSet ShowAllMathsStudents()
+    {
+        
+        String query="SELECT * FROM MathsStudent";
+        ResultSet rs=null;
+        DB_Connection  conn = new DB_Connection();
+        
+        try
+        {
+        
+        
+        conn.MakeConnection();
+        
+        rs = conn.RunSelectQuery(query);
+
+     
+        }
+        catch (Exception e)
+        {
+                
+        }
+        
+
+        
+        return rs;
+    }
     
     
+    public ResultSet ShowAllPSTStudents()
+    {
+        
+        String query="SELECT * FROM PSTStudents";
+        ResultSet rs=null;
+        DB_Connection  conn = new DB_Connection ();
+        
+        try
+        {
+        
+        
+        conn.MakeConnection();
+        
+        rs = conn.RunSelectQuery(query);
+
+     
+        }
+        catch (Exception e)
+        {
+                
+        }
+        
+
+        
+        return rs;
+    }
+    
+    public ResultSet ShowAllENGStudents()
+    {
+        
+        String query="SELECT * FROM EnglishStudents";
+        ResultSet rs=null;
+        DB_Connection  conn = new DB_Connection ();
+        
+        try
+        {
+        
+        
+        conn.MakeConnection();
+        
+        rs = conn.RunSelectQuery(query);
+
+     
+        }
+        catch (Exception e)
+        {
+                
+        }
+        
+
+        
+        return rs;
+    }
+    
+    public void AddMathsStudent(Student student)
+    {
+ 
+     String query = "INSERT INTO MathsStudent (Course_ID,Student_ID,Student Name)"
+        + "VALUES ('"+student.COURSE_ID+"', '"+student.Student_ID+"', '"+student.name+"')";
+        
+        
+     DB_Connection  conn = new DB_Connection ();
+     
+        try
+        {
+           conn.MakeConnection();
+
+           conn.RunInsertQuery(query);
+
+           
+        }
+        catch (Exception e)
+        {
+
+        }
+        finally
+        {
+            try
+            {
+                conn.CloseConnection();
+            }
+            catch (Exception e)
+            {
+                        
+            }
+        }
+        
+        
     
     
+      }
+    public void AddPSTStudent(Student student)
+    {
+ 
+     String query = "INSERT INTO PSTStudents (Course_ID,Student_ID,Student Name)"
+        + "VALUES ('"+student.COURSE_ID+"', '"+student.Student_ID+"', '"+student.name+"')";
+        
+        
+     DB_Connection  conn = new DB_Connection ();
+     
+        try
+        {
+           conn.MakeConnection();
+
+           conn.RunInsertQuery(query);
+
+           
+        }
+        catch (Exception e)
+        {
+
+        }
+        finally
+        {
+            try
+            {
+                conn.CloseConnection();
+            }
+            catch (Exception e)
+            {
+                        
+            }
+        }
+        
+        
     
     
+      }
+    public void AddENGStudent(Student student)
+    {
+ 
+     String query = "INSERT INTO EnglishStudents (Course_ID,Student_ID,Student Name)"
+        + "VALUES ('"+student.COURSE_ID+"', '"+student.Student_ID+"', '"+student.name+"')";
+        
+        
+     DB_Connection  conn = new DB_Connection ();
+     
+        try
+        {
+           conn.MakeConnection();
+
+           conn.RunInsertQuery(query);
+
+           
+        }
+        catch (Exception e)
+        {
+
+        }
+        finally
+        {
+            try
+            {
+                conn.CloseConnection();
+            }
+            catch (Exception e)
+            {
+                        
+            }
+        }
+        
+        
     
     
-    
-    
+      }
     
 }

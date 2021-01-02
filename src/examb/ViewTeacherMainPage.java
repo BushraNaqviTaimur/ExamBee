@@ -49,7 +49,7 @@ public class ViewTeacherMainPage extends javax.swing.JFrame {
     private void initComponents() {
 
         label_welcome = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        btnenrollstudent = new javax.swing.JButton();
         btnAddnewQuestions = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
@@ -60,10 +60,10 @@ public class ViewTeacherMainPage extends javax.swing.JFrame {
 
         label_welcome.setText("Welcome,");
 
-        jButton1.setText("Enroll Students");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnenrollstudent.setText("Enroll Students");
+        btnenrollstudent.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnenrollstudentActionPerformed(evt);
             }
         });
 
@@ -99,7 +99,7 @@ public class ViewTeacherMainPage extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnAddnewQuestions, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnenrollstudent, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addGap(36, 36, 36)
@@ -127,7 +127,7 @@ public class ViewTeacherMainPage extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)))
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnenrollstudent, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnAddnewQuestions, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -148,9 +148,11 @@ public class ViewTeacherMainPage extends javax.swing.JFrame {
                 this.setVisible(false); //to close current window
     }//GEN-LAST:event_btnAddnewQuestionsActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnenrollstudentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnenrollstudentActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+                new ViewTeacher_EnrollStudent(teacher).setVisible(true);
+                this.setVisible(false); //to close current window
+    }//GEN-LAST:event_btnenrollstudentActionPerformed
 
     /**
      * @param args the command line arguments
@@ -190,7 +192,7 @@ public class ViewTeacherMainPage extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAddnewQuestions;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btnenrollstudent;
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;

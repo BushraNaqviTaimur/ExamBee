@@ -14,8 +14,16 @@ public class ViewTeacher_EnrollStudent extends javax.swing.JFrame {
     /**
      * Creates new form ViewTeacher_EnrollStudent
      */
-    public ViewTeacher_EnrollStudent() {
+    Teacher teacher;
+    public ViewTeacher_EnrollStudent() 
+    {
+    }
+    public ViewTeacher_EnrollStudent(Teacher t) 
+    {
         initComponents();
+        this.teacher = t;
+        this.setLocationRelativeTo(null); // for centering form on screen
+        this.setDefaultCloseOperation(DISPOSE_ON_CLOSE); //does not close app on exit of window
     }
 
     /**
@@ -28,19 +36,34 @@ public class ViewTeacher_EnrollStudent extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        btnpst = new javax.swing.JButton();
+        btnenglish = new javax.swing.JButton();
+        btnmath = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setText("Choose the course for student enrollment.");
 
-        jButton1.setText("PST");
+        btnpst.setText("PST");
+        btnpst.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnpstActionPerformed(evt);
+            }
+        });
 
-        jButton2.setText("English");
+        btnenglish.setText("English");
+        btnenglish.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnenglishActionPerformed(evt);
+            }
+        });
 
-        jButton3.setText("Maths");
+        btnmath.setText("Maths");
+        btnmath.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnmathActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -49,9 +72,9 @@ public class ViewTeacher_EnrollStudent extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(220, 220, 220)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnmath, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnenglish, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnpst, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(199, Short.MAX_VALUE)
@@ -64,16 +87,34 @@ public class ViewTeacher_EnrollStudent extends javax.swing.JFrame {
                 .addGap(58, 58, 58)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(33, 33, 33)
-                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnmath, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnpst, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnenglish, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(60, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnmathActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnmathActionPerformed
+                   
+                    new ViewTeacher_EnrollStudentTable(teacher).setVisible(true);
+                    this.setVisible(false); //to close current window
+    }//GEN-LAST:event_btnmathActionPerformed
+
+    private void btnpstActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnpstActionPerformed
+                    
+                    new ViewTeacher_EnrollStudentTable(teacher).setVisible(true);
+                    this.setVisible(false); //to close current window
+    }//GEN-LAST:event_btnpstActionPerformed
+
+    private void btnenglishActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnenglishActionPerformed
+        // TODO add your handling code here:
+                    new ViewTeacher_EnrollStudentTable(teacher).setVisible(true);
+                    this.setVisible(false); //to close current window
+    }//GEN-LAST:event_btnenglishActionPerformed
 
     /**
      * @param args the command line arguments
@@ -111,9 +152,9 @@ public class ViewTeacher_EnrollStudent extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
+    private javax.swing.JButton btnenglish;
+    private javax.swing.JButton btnmath;
+    private javax.swing.JButton btnpst;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }
