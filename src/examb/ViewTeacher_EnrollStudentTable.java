@@ -238,7 +238,7 @@ public class ViewTeacher_EnrollStudentTable extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jMenuItem1_AddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1_AddActionPerformed
-        //new InsertPatientData(user).setVisible(true);
+        new AddnewStudent(teacher).setVisible(true);
     }//GEN-LAST:event_jMenuItem1_AddActionPerformed
 
     private void jMenuItem2_UpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2_UpdateActionPerformed

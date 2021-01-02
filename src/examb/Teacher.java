@@ -193,7 +193,7 @@ public class Teacher
     public void AddMathsStudent(Student student)
     {
  
-     String query = "INSERT INTO MathsStudent (Course_ID,Student_ID,Student Name)"
+     String query = "INSERT INTO MathsStudent (Course_ID,Student_ID,Student_Name)"
         + "VALUES ('"+student.COURSE_ID+"', '"+student.Student_ID+"', '"+student.name+"')";
         
         
@@ -301,5 +301,7 @@ public class Teacher
     
     
       }
+    
+    
     
 }
