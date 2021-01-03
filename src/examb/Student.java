@@ -1,12 +1,9 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package examb;
 
+import java.sql.ResultSet;
+
 /**
- *
  * @author bushra
  */
 
@@ -20,9 +17,155 @@ public class Student
     public Student(){}
     
         public Student (String COURSE_ID,String Student_ID,String name)
-          {
+        {
+              
          this.COURSE_ID=COURSE_ID;
          this.Student_ID=Student_ID;
          this.name=name;
+         
          }
+        
+        public ResultSet ShowAllPSTResults()
+        {
+        
+        String query="SELECT * FROM Result_PST";
+        ResultSet rs=null;
+        DB_Connection  conn = new DB_Connection ();
+        
+        try
+        {
+        
+        
+        conn.MakeConnection();
+        
+        rs = conn.RunSelectQuery(query);
+
+     
+        }
+        catch (Exception e)
+        {
+                
+        }
+        
+
+        
+        return rs;
+    }
+        public ResultSet ShowAllMathsResults()
+    {
+        
+        String query="SELECT * FROM Result_Maths";
+        ResultSet rs=null;
+        DB_Connection  conn = new DB_Connection ();
+        
+        try
+        {
+        
+        
+        conn.MakeConnection();
+        
+        rs = conn.RunSelectQuery(query);
+
+     
+        }
+        catch (Exception e)
+        {
+                
+        }
+        
+
+        
+        return rs;
+    }
+        public ResultSet ShowAllENGResults()
+    {
+        
+        String query="SELECT * FROM Result_English";
+        ResultSet rs=null;
+        DB_Connection  conn = new DB_Connection ();
+        
+        try
+        {
+        
+        
+        conn.MakeConnection();
+        
+        rs = conn.RunSelectQuery(query);
+
+     
+        }
+        catch (Exception e)
+        {
+                
+        }
+        
+
+        
+        return rs;
+    }
+        public ResultSet SearchMathStudentsResult(String text)
+    {
+        String query = "SELECT * FROM  Result_Maths WHERE Name LIKE '%"+text+"%'";
+        ResultSet rs=null;
+        
+        DB_Connection  conn = new DB_Connection ();
+        
+        try{            
+          
+            conn.MakeConnection();
+            
+            rs = conn.RunSelectQuery(query);
+
+            }     
+            catch (Exception e) 
+            {
+            
+            } 
+            
+        return rs;
+    }
+        public ResultSet SearchPSTStudentsResult(String text)
+    {
+        String query = "SELECT * FROM  Result_PST WHERE Name LIKE '%"+text+"%'";
+        ResultSet rs=null;
+        
+        DB_Connection  conn = new DB_Connection ();
+        
+        try{            
+          
+            conn.MakeConnection();
+            
+            rs = conn.RunSelectQuery(query);
+
+            }     
+            catch (Exception e) 
+            {
+            
+            } 
+            
+        return rs;
+    }
+    public ResultSet SearchENGStudentsResult(String text)
+    {
+        String query = "SELECT * FROM  Result_English WHERE Name LIKE '%"+text+"%'";
+        ResultSet rs=null;
+        
+        DB_Connection  conn = new DB_Connection ();
+        
+        try{            
+          
+            conn.MakeConnection();
+            
+            rs = conn.RunSelectQuery(query);
+
+            }     
+            catch (Exception e) 
+            {
+            
+            } 
+            
+        return rs;
+    }
+    
+        
       }

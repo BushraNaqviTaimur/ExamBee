@@ -26,7 +26,7 @@
           <Group type="102" attributes="0">
               <EmptySpace min="-2" pref="240" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Component id="jButton3" max="32767" attributes="0"/>
+                  <Component id="btnresult" max="32767" attributes="0"/>
                   <Component id="btnAddnewQuestions" max="32767" attributes="0"/>
                   <Component id="btnenrollstudent" min="-2" pref="177" max="-2" attributes="0"/>
               </Group>
@@ -70,7 +70,7 @@
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="btnAddnewQuestions" min="-2" pref="56" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Component id="jButton3" min="-2" pref="56" max="-2" attributes="0"/>
+              <Component id="btnresult" min="-2" pref="56" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -98,12 +98,12 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAddnewQuestionsActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton3">
+    <Component class="javax.swing.JButton" name="btnresult">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Check Results"/>
+        <Property name="text" type="java.lang.String" value="Result"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton3ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnresultActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel1">

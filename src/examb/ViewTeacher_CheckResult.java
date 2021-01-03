@@ -1,9 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package examb;
+
+import java.sql.ResultSet;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -14,9 +13,128 @@ public class ViewTeacher_CheckResult extends javax.swing.JFrame {
     /**
      * Creates new form ViewTeacher_CheckResult
      */
+    Teacher teacher;
+    ResultSet rs; 
     public ViewTeacher_CheckResult() {
         initComponents();
     }
+    public ViewTeacher_CheckResult(Teacher teacher) 
+    {
+        initComponents();
+        this.teacher=teacher;
+        this.setLocationRelativeTo(null); // for centering form on screen
+        this.setDefaultCloseOperation(DISPOSE_ON_CLOSE); //does not close app on exit of window
+        
+        Student student= new Student();
+        
+        if("PST03".equals(teacher.courseCode))
+        {
+            try
+                {
+
+                rs = student.ShowAllPSTResults();
+                    
+                while(jTable1_showresult.getRowCount() > 0) 
+                {
+                    ((DefaultTableModel) jTable1_showresult.getModel()).removeRow(0);
+
+                }
+
+
+                
+                int columns = rs.getMetaData().getColumnCount();
+
+
+                while(rs.next())
+                {  
+
+                    Object[] row = new Object[columns];
+                    for (int i = 1; i <= columns; i++)
+                    {  
+                        row[i - 1] = rs.getObject(i);
+                    }
+                    ((DefaultTableModel) jTable1_showresult.getModel()).insertRow(rs.getRow()-1,row);
+                }
+
+            }
+            catch (Exception e)
+        {
+                
+        }  
+        }
+        if("Math01".equals(teacher.courseCode))
+        {
+            
+            
+            try
+                {
+
+                rs = student.ShowAllMathsResults();
+                    
+                while(jTable1_showresult.getRowCount() > 0) 
+                {
+                    ((DefaultTableModel) jTable1_showresult.getModel()).removeRow(0);
+
+                }
+
+                int columns = rs.getMetaData().getColumnCount();
+
+
+                while(rs.next())
+                {  
+
+                    Object[] row = new Object[columns];
+                    for (int i = 1; i <= columns; i++)
+                    {  
+                        row[i - 1] = rs.getObject(i);
+                    }
+                    ((DefaultTableModel)jTable1_showresult.getModel()).insertRow(rs.getRow()-1,row);
+                }
+
+            }
+        catch (Exception e)
+        {
+                
+        }  
+        }
+        if("English02".equals(teacher.courseCode))
+        {
+            
+            
+            try
+                {
+
+                rs = student.ShowAllENGResults();
+                    
+                while(jTable1_showresult.getRowCount() > 0) 
+                {
+                    ((DefaultTableModel) jTable1_showresult.getModel()).removeRow(0);
+
+                }
+
+                int columns = rs.getMetaData().getColumnCount();
+
+
+                while(rs.next())
+                {  
+
+                    Object[] row = new Object[columns];
+                    for (int i = 1; i <= columns; i++)
+                    {  
+                        row[i - 1] = rs.getObject(i);
+                    }
+                    ((DefaultTableModel)jTable1_showresult.getModel()).insertRow(rs.getRow()-1,row);
+                }
+
+            }
+        catch (Exception e)
+        {
+                
+        }  
+        }
+    }
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -28,49 +146,130 @@ public class ViewTeacher_CheckResult extends javax.swing.JFrame {
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        jTable1_showresult = new javax.swing.JTable();
+        jTextField1 = new javax.swing.JTextField();
+        jButton1_search = new javax.swing.JButton();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        jMenu1_file = new javax.swing.JMenu();
+        jMenuItem_refresh = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        jTable1_showresult.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
-                "Student_ID", "Student Name", "Result", "Grade"
+                "Student_ID", "Student Name", "Total Marks", "Obtained Marks", "Grade"
             }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.Long.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
-            };
+        ));
+        jScrollPane1.setViewportView(jTable1_showresult);
 
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
+        jButton1_search.setBackground(new java.awt.Color(255, 255, 255));
+        jButton1_search.setText("Search");
+        jButton1_search.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jButton1_search.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1_searchActionPerformed(evt);
             }
         });
-        jScrollPane1.setViewportView(jTable1);
+
+        jMenuBar1.setBackground(new java.awt.Color(121, 228, 255));
+
+        jMenu1_file.setText("File");
+
+        jMenuItem_refresh.setText("Refresh");
+        jMenuItem_refresh.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem_refreshActionPerformed(evt);
+            }
+        });
+        jMenu1_file.add(jMenuItem_refresh);
+
+        jMenuBar1.add(jMenu1_file);
+
+        setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 763, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(34, 34, 34)
+                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 579, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jButton1_search, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 40, Short.MAX_VALUE))
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(34, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 436, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap(9, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton1_search, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 322, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(74, 74, 74))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton1_searchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1_searchActionPerformed
+
+        Student student= new Student();
+        if("Math01".equals(teacher.courseCode))
+        {
+
+            rs = student.SearchMathStudentsResult(jTextField1.getText());
+        }
+
+        if("English02".equals(teacher.courseCode))
+        {
+
+            rs = student.SearchENGStudentsResult(jTextField1.getText());
+        }
+        if("PST03".equals(teacher.courseCode))
+        {
+
+            rs = student.SearchPSTStudentsResult(jTextField1.getText());
+        }
+        try
+        {
+
+            while(jTable1_showresult.getRowCount() > 0)
+            {
+                ((DefaultTableModel) jTable1_showresult.getModel()).removeRow(0);
+            }
+            int columns = rs.getMetaData().getColumnCount();
+            while(rs.next())
+            {
+                Object[] row = new Object[columns];
+                for (int i = 1; i <= columns; i++)
+                {
+                    row[i - 1] = rs.getObject(i);
+                }
+                ((DefaultTableModel) jTable1_showresult.getModel()).insertRow(rs.getRow()-1,row);
+            }
+
+        }
+        catch (Exception e)
+        {
+
+        }
+    }//GEN-LAST:event_jButton1_searchActionPerformed
+
+    private void jMenuItem_refreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem_refreshActionPerformed
+        jTextField1.setText("");
+        this.jButton1_searchActionPerformed(evt);
+    }//GEN-LAST:event_jMenuItem_refreshActionPerformed
 
     /**
      * @param args the command line arguments
@@ -108,7 +307,12 @@ public class ViewTeacher_CheckResult extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1_search;
+    private javax.swing.JMenu jMenu1_file;
+    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem_refresh;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable jTable1_showresult;
+    private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
 }

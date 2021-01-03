@@ -19,6 +19,8 @@ public class ViewTeacherMainPage extends javax.swing.JFrame {
     
      public ViewTeacherMainPage() {
         initComponents();
+        this.setLocationRelativeTo(null); // for centering form on screen
+        this.setDefaultCloseOperation(DISPOSE_ON_CLOSE); //does not close app on exit of window
         
 
         
@@ -28,7 +30,8 @@ public class ViewTeacherMainPage extends javax.swing.JFrame {
         initComponents();
         
         this.teacher = teacher;
-        
+        this.setLocationRelativeTo(null); // for centering form on screen
+        this.setDefaultCloseOperation(DISPOSE_ON_CLOSE); //does not close app on exit of window
         label_welcome.setText("Welcome, "+teacher.userName);
         
         label_profile.setText("Name: "+teacher.userName);
@@ -51,7 +54,7 @@ public class ViewTeacherMainPage extends javax.swing.JFrame {
         label_welcome = new javax.swing.JLabel();
         btnenrollstudent = new javax.swing.JButton();
         btnAddnewQuestions = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        btnresult = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         label_profile = new javax.swing.JTextArea();
@@ -74,10 +77,10 @@ public class ViewTeacherMainPage extends javax.swing.JFrame {
             }
         });
 
-        jButton3.setText("Check Results");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        btnresult.setText("Result");
+        btnresult.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                btnresultActionPerformed(evt);
             }
         });
 
@@ -97,7 +100,7 @@ public class ViewTeacherMainPage extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(240, 240, 240)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnresult, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnAddnewQuestions, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnenrollstudent, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(0, 0, Short.MAX_VALUE))
@@ -131,20 +134,22 @@ public class ViewTeacherMainPage extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(btnAddnewQuestions, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnresult, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(57, 57, 57))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void btnresultActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnresultActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
+        new ViewTeacher_CheckResult(teacher).setVisible(true);
+        this.setVisible(false); //to close current window
+    }//GEN-LAST:event_btnresultActionPerformed
 
     private void btnAddnewQuestionsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddnewQuestionsActionPerformed
         
-               new ViewTeacher_CreateExam(teacher).setVisible(true);
+                new ViewTeacher_CreateExam(teacher).setVisible(true);
                 this.setVisible(false); //to close current window
     }//GEN-LAST:event_btnAddnewQuestionsActionPerformed
 
@@ -193,7 +198,7 @@ public class ViewTeacherMainPage extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAddnewQuestions;
     private javax.swing.JButton btnenrollstudent;
-    private javax.swing.JButton jButton3;
+    private javax.swing.JButton btnresult;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea label_profile;
