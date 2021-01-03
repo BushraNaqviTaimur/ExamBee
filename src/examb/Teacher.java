@@ -267,7 +267,7 @@ public class Teacher
     public void AddENGStudent(Student student)
     {
  
-     String query = "INSERT INTO EnglishStudents (Course_ID,Student_ID,Student Name)"
+     String query = "INSERT INTO EnglishStudents (Course_ID,Student_ID,Student_Name)"
         + "VALUES ('"+student.COURSE_ID+"', '"+student.Student_ID+"', '"+student.name+"')";
         
         
@@ -365,4 +365,236 @@ public class Teacher
             
         return rs;
     }
+    
+    public void UpdateMathsStudent(Student student)
+    {
+ 
+     String query = "UPDATE MathsStudent SET Course_ID='"+student.COURSE_ID+"', Student_ID='"+student.Student_ID+"',Student_Name='"+student.name+"'";
+       
+
+    DB_Connection  conn = new DB_Connection ();
+     
+        try
+        {
+           conn.MakeConnection();
+
+           conn.RunUpdateQuery(query);
+
+           
+        }
+        catch (Exception e)
+        {
+
+        }
+        finally
+        {
+            try
+            {
+                conn.CloseConnection();
+            }
+            catch (Exception e)
+            {
+                        
+            }
+        }
+        
+    /**
+     *
+     * @return
+     */
+    
+  
+      }
+    public void UpdatePSTStudent(Student student)
+    {
+ 
+     String query = "UPDATE PSTStudents SET Course_ID='"+student.COURSE_ID+"', Student_ID='"+student.Student_ID+"',Student_Name='"+student.name+"'";
+       
+
+    DB_Connection  conn = new DB_Connection ();
+     
+        try
+        {
+           conn.MakeConnection();
+
+           conn.RunUpdateQuery(query);
+
+           
+        }
+        catch (Exception e)
+        {
+
+        }
+        finally
+        {
+            try
+            {
+                conn.CloseConnection();
+            }
+            catch (Exception e)
+            {
+                        
+            }
+        }
+        
+    /**
+     *
+     * @return
+     */
+    
+  
+      }
+    public void UpdateENGStudent(Student student)
+    {
+ 
+     String query = "UPDATE EnglishStudents SET Course_ID='"+student.COURSE_ID+"', Student_ID='"+student.Student_ID+"',Student_Name='"+student.name+"'";
+       
+
+     DB_Connection  conn = new DB_Connection ();
+     
+        try
+        {
+           conn.MakeConnection();
+
+           conn.RunUpdateQuery(query);
+
+           
+        }
+        catch (Exception e)
+        {
+
+        }
+        finally
+        {
+            try
+            {
+                conn.CloseConnection();
+            }
+            catch (Exception e)
+            {
+                        
+            }
+        }
+        
+    /**
+     *
+     * @return
+     */
+    
+    }
+    public void DeleteMathsStudent(Student student)
+    {
+ 
+     String query = "DELETE FROM MathsStudent WHERE  Student_ID='"+student.Student_ID+"'";
+
+     DB_Connection  conn = new DB_Connection ();
+     
+        try
+        {
+           conn.MakeConnection();
+
+           conn.RunDeleteQuery(query);
+
+           
+        }
+        catch (Exception e)
+        {
+
+        }
+        finally
+        {
+            try
+            {
+                conn.CloseConnection();
+            }
+            catch (Exception e)
+            {
+                        
+            }
+        }
+        
+    /**
+     *
+     * @return
+     */
+    
+  
+      }
+    
+    public void DeletePSTStudent(Student student)
+    {
+ 
+     String query = "DELETE FROM PSTStudents WHERE  Student_ID='"+student.Student_ID+"'";
+
+     DB_Connection  conn = new DB_Connection ();
+     
+        try
+        {
+           conn.MakeConnection();
+
+           conn.RunDeleteQuery(query);
+
+           
+        }
+        catch (Exception e)
+        {
+
+        }
+        finally
+        {
+            try
+            {
+                conn.CloseConnection();
+            }
+            catch (Exception e)
+            {
+                        
+            }
+        }
+        
+    /**
+     *
+     * @return
+     */
+    
+  
+      }
+    public void DeleteENGStudent(Student student)
+    {
+ 
+     String query = "DELETE FROM EnglishStudents WHERE  Student_ID='"+student.Student_ID+"'";
+
+     DB_Connection  conn = new DB_Connection ();
+     
+        try
+        {
+           conn.MakeConnection();
+
+           conn.RunDeleteQuery(query);
+
+           
+        }
+        catch (Exception e)
+        {
+
+        }
+        finally
+        {
+            try
+            {
+                conn.CloseConnection();
+            }
+            catch (Exception e)
+            {
+                        
+            }
+        }
+        
+    /**
+     *
+     * @return
+     */
+    
+  
+      }
 }

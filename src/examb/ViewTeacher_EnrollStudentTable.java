@@ -275,40 +275,75 @@ public class ViewTeacher_EnrollStudentTable extends javax.swing.JFrame {
 
     private void jMenuItem2_UpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2_UpdateActionPerformed
 
-       // if(jTable1_patientshistory.getRowCount() == 1)
-        //{
-         //   Patient patient = new Patient();
-         //   patient.ID = Integer.parseInt(jTable1_patientshistory.getValueAt(0,0).toString());
-         //   patient.name = jTable1_patientshistory.getValueAt(0,1).toString();
-         //   patient.phoneNumber = Integer.parseInt(jTable1_patientshistory.getValueAt(0,2).toString());
-         //   patient.pastDentalhistory = jTable1_patientshistory.getValueAt(0,3).toString();
-          //  patient.pastMedicalhistory = jTable1_patientshistory.getValueAt(0,4).toString();
-          //  patient.pastSurgicalhistory = jTable1_patientshistory.getValueAt(0,5).toString();
-           // patient.pastDrughistory = jTable1_patientshistory.getValueAt(0,6).toString();
+       if(jTable_showallstudents.getRowCount() == 1)
+        {
+           Student student = new Student();
+           student.COURSE_ID=jTable_showallstudents.getValueAt(0, 0).toString();
+           student.Student_ID=jTable_showallstudents.getValueAt(0, 1).toString();
+           student.name=jTable_showallstudents.getValueAt(0, 2).toString();   
+        
 
-          //  Receptionist recept = new  Receptionist(user.userName,user.password,user.userType);
+           Teacher teacher1 = new Teacher( teacher.userName,teacher.password,teacher.courseCode );
+           
+        if("Math01".equals(teacher.courseCode))
+        {
+            
+             teacher1.UpdateMathsStudent(student);
+             JOptionPane.showMessageDialog(rootPane, "Record updated successfully.");
+           
+        }
+        
+        if("PST03".equals(teacher.courseCode))
+        {
+            teacher1.UpdatePSTStudent(student);
+             JOptionPane.showMessageDialog(rootPane, "Record updated successfully.");
+        }
+        
+        if("English02".equals(teacher.courseCode))
+        {
+            teacher1.UpdateENGStudent(student);
+             JOptionPane.showMessageDialog(rootPane, "Record updated successfully..");
+        }
 
-          //  recept.UpdatePatientData(patient);
-
-          //  JOptionPane.showMessageDialog(rootPane, "Record updated successfully.");
-       // }
-       // else
-       // {
-        //    JOptionPane.showMessageDialog(rootPane, "You must first search for a specific patient to update.");
-       // }
+          
+       }
+       else
+       {
+           JOptionPane.showMessageDialog(rootPane, "You must first search for a specific patient to update.");
+       }
     }//GEN-LAST:event_jMenuItem2_UpdateActionPerformed
 
     private void jMenuItem3_deleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3_deleteActionPerformed
         //new DeletePatientData(user).setVisible(true);
 
-        //int inputID = Integer.parseInt(JOptionPane.showInputDialog("Enter patient ID"));
+        String inputID = JOptionPane.showInputDialog("Enter Student ID");
 
-       // Patient patient = new Patient();
-       // patient.ID = inputID;
+       Student student = new Student();
+       student.Student_ID= inputID;
+       
+       Teacher teacher1 = new Teacher( teacher.userName,teacher.password,teacher.courseCode );
+        
+       if("Math01".equals(teacher.courseCode))
+        {
+            
+             teacher1.DeleteMathsStudent(student);
+             JOptionPane.showMessageDialog(rootPane, "Record Deleted successfully.");
+           
+        }
+        
+        if("PST03".equals(teacher.courseCode))
+        {
+            teacher1.DeletePSTStudent(student);
+             JOptionPane.showMessageDialog(rootPane, "Record Deleted successfully.");
+        }
+        
+        if("English02".equals(teacher.courseCode))
+        {
+            teacher1.DeleteENGStudent(student);
+             JOptionPane.showMessageDialog(rootPane, "Record Deleted successfully..");
+        }
 
-        //Receptionist recept = new  Receptionist(user.userName,user.password,user.userType);
-
-       // recept.DeletePatient(patient);
+       
 
     }//GEN-LAST:event_jMenuItem3_deleteActionPerformed
 
