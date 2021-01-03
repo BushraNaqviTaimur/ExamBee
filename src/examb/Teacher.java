@@ -230,7 +230,7 @@ public class Teacher
     public void AddPSTStudent(Student student)
     {
  
-     String query = "INSERT INTO PSTStudents (Course_ID,Student_ID,Student Name)"
+     String query = "INSERT INTO PSTStudents (Course_ID,Student_ID,Student_Name)"
         + "VALUES ('"+student.COURSE_ID+"', '"+student.Student_ID+"', '"+student.name+"')";
         
         
@@ -302,6 +302,67 @@ public class Teacher
     
       }
     
-    
-    
+    public ResultSet SearchMathStudentsData(String text)
+    {
+        String query = "SELECT * FROM MathsStudent WHERE Student_Name LIKE '%"+text+"%'";
+        ResultSet rs=null;
+        
+        DB_Connection  conn = new DB_Connection ();
+        
+        try{            
+          
+            conn.MakeConnection();
+            
+            rs = conn.RunSelectQuery(query);
+
+            }     
+            catch (Exception e) 
+            {
+            
+            } 
+            
+        return rs;
+    }
+    public ResultSet SearchPSTStudentsData(String text)
+    {
+        String query = "SELECT * FROM PSTStudents WHERE Student_Name LIKE '%"+text+"%'";
+        ResultSet rs=null;
+        
+        DB_Connection  conn = new DB_Connection ();
+        
+        try{            
+          
+            conn.MakeConnection();
+            
+            rs = conn.RunSelectQuery(query);
+
+            }     
+            catch (Exception e) 
+            {
+            
+            } 
+            
+        return rs;
+    }
+    public ResultSet SearchENGStudentsData(String text)
+    {
+        String query = "SELECT * FROM EnglishStudents WHERE Student_Name LIKE '%"+text+"%'";
+        ResultSet rs=null;
+        
+        DB_Connection  conn = new DB_Connection ();
+        
+        try{            
+          
+            conn.MakeConnection();
+            
+            rs = conn.RunSelectQuery(query);
+
+            }     
+            catch (Exception e) 
+            {
+            
+            } 
+            
+        return rs;
+    }
 }

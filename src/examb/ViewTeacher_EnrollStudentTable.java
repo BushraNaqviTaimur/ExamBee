@@ -18,9 +18,11 @@ public class ViewTeacher_EnrollStudentTable extends javax.swing.JFrame {
     /**
      * Creates new form ViewTeacher_EnrollStudentTable
      */
-      ResultSet rs; 
-      Teacher teacher;
-        public ViewTeacher_EnrollStudentTable() 
+     
+    ResultSet rs; 
+    Teacher teacher;
+      
+      public ViewTeacher_EnrollStudentTable() 
         {}
 
     public ViewTeacher_EnrollStudentTable(Teacher teacher) 
@@ -163,8 +165,11 @@ public class ViewTeacher_EnrollStudentTable extends javax.swing.JFrame {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable_showallstudents = new javax.swing.JTable();
+        jTextField1 = new javax.swing.JTextField();
+        jButton1_search = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1_file = new javax.swing.JMenu();
+        jMenuItem_refresh = new javax.swing.JMenuItem();
         jMenu_insert = new javax.swing.JMenu();
         jMenuItem1_Add = new javax.swing.JMenuItem();
         jMenuItem2_Update = new javax.swing.JMenuItem();
@@ -185,9 +190,27 @@ public class ViewTeacher_EnrollStudentTable extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(jTable_showallstudents);
 
+        jButton1_search.setBackground(new java.awt.Color(255, 255, 255));
+        jButton1_search.setText("Search");
+        jButton1_search.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jButton1_search.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1_searchActionPerformed(evt);
+            }
+        });
+
         jMenuBar1.setBackground(new java.awt.Color(121, 228, 255));
 
         jMenu1_file.setText("File");
+
+        jMenuItem_refresh.setText("Refresh");
+        jMenuItem_refresh.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem_refreshActionPerformed(evt);
+            }
+        });
+        jMenu1_file.add(jMenuItem_refresh);
+
         jMenuBar1.add(jMenu1_file);
 
         jMenu_insert.setText("Functions");
@@ -224,14 +247,23 @@ public class ViewTeacher_EnrollStudentTable extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 439, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jButton1_search, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 622, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(30, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 362, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(25, 25, 25))
+                .addGap(28, 28, 28)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton1_search, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 321, Short.MAX_VALUE))
         );
 
         pack();
@@ -280,6 +312,54 @@ public class ViewTeacher_EnrollStudentTable extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jMenuItem3_deleteActionPerformed
 
+    private void jButton1_searchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1_searchActionPerformed
+
+        if("Math01".equals(teacher.courseCode)) 
+        {
+           
+            rs = teacher.SearchMathStudentsData(jTextField1.getText());
+        }
+       
+        if("English02".equals(teacher.courseCode)) 
+        {
+           
+            rs = teacher.SearchENGStudentsData(jTextField1.getText());
+        }
+        if("PST03".equals(teacher.courseCode)) 
+        {
+           
+            rs = teacher.SearchPSTStudentsData(jTextField1.getText());
+        }
+        try
+        {
+
+            while(jTable_showallstudents.getRowCount() > 0)
+            {
+                ((DefaultTableModel) jTable_showallstudents.getModel()).removeRow(0);
+            }
+            int columns = rs.getMetaData().getColumnCount();
+            while(rs.next())
+            {
+                Object[] row = new Object[columns];
+                for (int i = 1; i <= columns; i++)
+                {
+                    row[i - 1] = rs.getObject(i);
+                }
+                ((DefaultTableModel) jTable_showallstudents.getModel()).insertRow(rs.getRow()-1,row);
+            }
+
+        }
+        catch (Exception e)
+        {
+
+        }
+    }//GEN-LAST:event_jButton1_searchActionPerformed
+
+    private void jMenuItem_refreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem_refreshActionPerformed
+        jTextField1.setText("");
+        this.jButton1_searchActionPerformed(evt);
+    }//GEN-LAST:event_jMenuItem_refreshActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -316,13 +396,16 @@ public class ViewTeacher_EnrollStudentTable extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1_search;
     private javax.swing.JMenu jMenu1_file;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1_Add;
     private javax.swing.JMenuItem jMenuItem2_Update;
     private javax.swing.JMenuItem jMenuItem3_delete;
+    private javax.swing.JMenuItem jMenuItem_refresh;
     private javax.swing.JMenu jMenu_insert;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable_showallstudents;
+    private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
 }
