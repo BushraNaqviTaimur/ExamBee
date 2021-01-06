@@ -17,6 +17,14 @@ public class ViewStudent_Exam extends javax.swing.JFrame {
     public ViewStudent_Exam() {
         initComponents();
     }
+    Student student;
+    public ViewStudent_Exam(Student student)
+    {
+        initComponents();
+        this.student=student;
+        this.setLocationRelativeTo(null); // for centering form on screen
+        this.setDefaultCloseOperation(DISPOSE_ON_CLOSE); //does not close app on exit of window
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.

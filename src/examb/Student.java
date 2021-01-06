@@ -25,6 +25,66 @@ public class Student
          
          }
         
+        public Student (String Student_ID)
+        {
+         this.Student_ID=Student_ID;         
+        }
+        
+        public boolean StudentLogin(String tableName)
+    {
+        boolean result=false;
+        
+
+       DB_Connection  conn = new DB_Connection ();
+
+        String query = "SELECT * FROM "+ tableName + " WHERE Student_ID='"+Student_ID+"'";//taking tablename as perimeter from studentloginpage.java's btnjoin method
+    
+        try
+        {
+            conn.MakeConnection();
+            
+            ResultSet rs = conn.RunSelectQuery(query);
+           
+            int record = 0;
+        
+            while(rs.next())
+            {
+               record++;//after record is found we extract following
+               this.COURSE_ID = rs.getString("Course_ID"); //extracting column/row value from database resultset
+               this.name = rs.getString("Student_Name"); //extracting column/row value from database resultset
+            }
+
+            if(record>0)
+            {
+               result= true;
+
+            }
+            else 
+               result= false;
+            
+            
+            
+        }
+        catch (Exception e)
+        {
+        
+        }
+        finally
+        {
+            try
+            {
+                conn.CloseConnection();
+            }
+            catch (Exception e)
+            {
+                        
+            }
+        }
+       
+        return result;
+        
+        
+    }
         public ResultSet ShowAllPSTResults()
         {
         

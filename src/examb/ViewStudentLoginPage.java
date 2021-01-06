@@ -5,6 +5,8 @@
  */
 package examb;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author bushra
@@ -16,6 +18,8 @@ public class ViewStudentLoginPage extends javax.swing.JFrame {
      */
     public ViewStudentLoginPage() {
         initComponents();
+        this.setLocationRelativeTo(null); // for centering form on screen
+        this.setDefaultCloseOperation(DISPOSE_ON_CLOSE); //does not close app on exit of window
     }
 
     /**
@@ -27,17 +31,20 @@ public class ViewStudentLoginPage extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
+        btnjoin = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        jTextField2_s = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jButton1.setText("jButton1");
+        btnjoin.setText("Join");
+        btnjoin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnjoinActionPerformed(evt);
+            }
+        });
 
-        jLabel1.setText("jLabel1");
-
-        jTextField1.setText("jTextField1");
+        jLabel1.setText("              Enter Your Student-ID");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -46,29 +53,61 @@ public class ViewStudentLoginPage extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(81, 81, 81)
-                        .addComponent(jLabel1))
+                        .addGap(59, 59, 59)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jTextField2_s, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(210, 210, 210)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton1))))
-                .addContainerGap(293, Short.MAX_VALUE))
+                        .addGap(229, 229, 229)
+                        .addComponent(btnjoin, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(139, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(119, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addGap(44, 44, 44)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30)
-                .addComponent(jButton1)
-                .addGap(165, 165, 165))
+                .addContainerGap(152, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField2_s, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(120, 120, 120)
+                .addComponent(btnjoin, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(49, 49, 49))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnjoinActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnjoinActionPerformed
+        // TODO add your handling code here:
+        Student student= new Student(jTextField2_s.getText());
+        
+        boolean loginStatus = student.StudentLogin("PSTStudents");
+        
+        
+        if(loginStatus == true)
+        {
+            JOptionPane.showMessageDialog(rootPane, "Login successful!, welcome "+ student.name);
+        
+                    new ViewStudent_MainPage(student).setVisible(true);
+                    this.setVisible(false); //to close current window
+        }
+        else if (loginStatus = student.StudentLogin("EnglishStudents"))
+        {
+            JOptionPane.showMessageDialog(rootPane, "Login successful!, welcome "+ student.name);
+                    new ViewStudent_MainPage(student).setVisible(true);
+                    this.setVisible(false); //to close current window
+        }
+        else if (loginStatus = student.StudentLogin("MathsStudent"))
+        {
+            JOptionPane.showMessageDialog(rootPane, "Login successful!, welcome "+ student.name);
+                    new ViewStudent_MainPage(student).setVisible(true);
+                    this.setVisible(false); //to close current window
+        }
+        else
+        {
+            JOptionPane.showMessageDialog(rootPane, "Student does not exist, please try again!");
+        }
+    }//GEN-LAST:event_btnjoinActionPerformed
 
     /**
      * @param args the command line arguments
@@ -106,8 +145,8 @@ public class ViewStudentLoginPage extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btnjoin;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField2_s;
     // End of variables declaration//GEN-END:variables
 }
