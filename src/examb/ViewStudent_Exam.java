@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package examb;
-
+import java.sql.ResultSet;
 /**
  *
  * @author bushra
@@ -18,12 +18,60 @@ public class ViewStudent_Exam extends javax.swing.JFrame {
         initComponents();
     }
     Student student;
+    ResultSet rs;
+    String result=null;
+    int count=0;
+    
     public ViewStudent_Exam(Student student)
     {
         initComponents();
         this.student=student;
         this.setLocationRelativeTo(null); // for centering form on screen
         this.setDefaultCloseOperation(DISPOSE_ON_CLOSE); //does not close app on exit of window
+        
+        
+        lblScore.setText("Score: 0 / 50");
+       
+        rs=null;
+        
+        if(student.COURSE_ID.equals("PST03"))
+        {
+        rs= student.GetNextQuestion("QuestionBankPST");
+        }
+        if(student.COURSE_ID.equals("Math01"))
+        {
+        rs= student.GetNextQuestion("QuestionBankMaths");
+        }
+        if(student.COURSE_ID.equals("English02"))
+        {
+        rs= student.GetNextQuestion("QuestionBankEnglish");
+        }
+        
+        int record = 0;
+        
+        try
+        {
+            while(rs.next())
+            {
+               record++;//after record is found we extract following
+
+                 //filling form
+                tfQuestionText.setText(rs.getString("Question"));
+                rbOptionA.setText(rs.getString("A"));
+                rbOptionB.setText(rs.getString("B"));               
+                rbOptionC.setText(rs.getString("C"));
+                
+                result=rs.getString("Result");
+            }
+        }
+        
+        catch (Exception e)
+        {
+        
+        }
+        
+        
+        
     }
 
     /**
@@ -35,72 +83,195 @@ public class ViewStudent_Exam extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
+        buttonGroup1 = new javax.swing.ButtonGroup();
+        btnNextQuestion = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jRadioButton2 = new javax.swing.JRadioButton();
-        jRadioButton3 = new javax.swing.JRadioButton();
+        tfQuestionText = new javax.swing.JTextArea();
+        rbOptionA = new javax.swing.JRadioButton();
+        rbOptionB = new javax.swing.JRadioButton();
+        rbOptionC = new javax.swing.JRadioButton();
+        lblScore = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
+        lblTimer = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jButton1.setText("Next Question");
+        btnNextQuestion.setText("Next Question");
+        btnNextQuestion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNextQuestionActionPerformed(evt);
+            }
+        });
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        tfQuestionText.setBackground(new java.awt.Color(204, 204, 204));
+        tfQuestionText.setColumns(20);
+        tfQuestionText.setRows(5);
+        jScrollPane1.setViewportView(tfQuestionText);
 
-        jRadioButton1.setText("jRadioButton1");
+        buttonGroup1.add(rbOptionA);
+        rbOptionA.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
+        rbOptionA.setText("jRadioButton1");
 
-        jRadioButton2.setText("jRadioButton2");
+        buttonGroup1.add(rbOptionB);
+        rbOptionB.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
+        rbOptionB.setText("jRadioButton2");
 
-        jRadioButton3.setText("jRadioButton3");
+        buttonGroup1.add(rbOptionC);
+        rbOptionC.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
+        rbOptionC.setText("jRadioButton3");
 
-        jLabel1.setText("//count label//");
+        lblScore.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
+        lblScore.setText("//count label//");
+
+        jLabel1.setText("Timer:");
+
+        lblTimer.setText("timer counter here");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(358, Short.MAX_VALUE)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(54, 54, 54))
             .addGroup(layout.createSequentialGroup()
-                .addGap(64, 64, 64)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jRadioButton3)
-                    .addComponent(jRadioButton2)
-                    .addComponent(jRadioButton1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(34, 34, 34))
+                .addGap(72, 72, 72)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(197, 197, 197)
+                        .addComponent(rbOptionC)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(rbOptionA)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(rbOptionB)
+                        .addGap(84, 84, 84))))
             .addGroup(layout.createSequentialGroup()
-                .addGap(17, 17, 17)
-                .addComponent(jScrollPane1)
-                .addContainerGap())
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(34, 34, 34)
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblTimer)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnNextQuestion, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(16, 16, 16)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 679, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblScore, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(18, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(72, 72, 72)
+                .addGap(14, 14, 14)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(lblScore, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(39, 39, 39)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jRadioButton1)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jRadioButton2)
-                .addGap(18, 18, 18)
-                .addComponent(jRadioButton3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(36, 36, 36))
+                    .addComponent(rbOptionA)
+                    .addComponent(rbOptionB))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
+                .addComponent(rbOptionC)
+                .addGap(48, 48, 48)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnNextQuestion, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1)
+                    .addComponent(lblTimer))
+                .addGap(38, 38, 38))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnNextQuestionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNextQuestionActionPerformed
+        // TODO add your handling code here:
+        
+        
+    
+        
+        
+        if(rbOptionA.isSelected())
+        {
+            if(rbOptionA.getText().equals(result))
+            {
+                count+=5;
+            }
+        }
+        else if(rbOptionB.isSelected())
+        {
+            if(rbOptionB.getText().equals(result))
+            {
+                count+=5;
+            }
+            
+        }
+        else if(rbOptionC.isSelected())
+        {
+            if(rbOptionC.getText().equals(result))
+            {
+                count+=5;
+            }
+            
+        }
+        
+        
+        
+        
+        
+        ResultSet rs=null;
+        
+        if(student.COURSE_ID.equals("PST03"))
+        {
+        rs= student.GetNextQuestion("QuestionBankPST");
+        }
+        if(student.COURSE_ID.equals("Math01"))
+        {
+        rs= student.GetNextQuestion("QuestionBankMaths");
+        }
+        if(student.COURSE_ID.equals("English02"))
+        {
+        rs= student.GetNextQuestion("QuestionBankEnglish");
+        }
+        
+        int record = 0;
+        
+        try
+        {
+            while(rs.next())
+            {
+               record++;//after record is found we extract following
+
+                 //filling form
+                tfQuestionText.setText(rs.getString("Question"));
+                rbOptionA.setText(rs.getString("A"));
+                rbOptionB.setText(rs.getString("B"));               
+                rbOptionC.setText(rs.getString("C"));
+                
+                result=rs.getString("Result");
+                
+                
+                
+            }
+        }
+        
+        
+        catch (Exception e)
+        {
+        
+        }
+        
+        lblScore.setText("Score: "+String.valueOf(count)+ " / 50");
+        
+            //clearing radio button selection
+        buttonGroup1.clearSelection();
+        
+      if (student.questionNumber==11)
+        {
+            new ViewStudent_examlastpage(student).setVisible(true);
+            this.setVisible(false);
+        }
+        
+    }//GEN-LAST:event_btnNextQuestionActionPerformed
 
     /**
      * @param args the command line arguments
@@ -138,12 +309,15 @@ public class ViewStudent_Exam extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btnNextQuestion;
+    private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton2;
-    private javax.swing.JRadioButton jRadioButton3;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JLabel lblScore;
+    private javax.swing.JLabel lblTimer;
+    private javax.swing.JRadioButton rbOptionA;
+    private javax.swing.JRadioButton rbOptionB;
+    private javax.swing.JRadioButton rbOptionC;
+    private javax.swing.JTextArea tfQuestionText;
     // End of variables declaration//GEN-END:variables
 }

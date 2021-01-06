@@ -2,6 +2,7 @@
 package examb;
 
 import java.sql.ResultSet;
+import java.util.Random; //for generating random number
 
 /**
  * @author bushra
@@ -13,6 +14,9 @@ public class Student
     String COURSE_ID;
     String Student_ID;
     String name;
+    
+    int QID[]= new int[11]; //because 10 questions are asked in exams
+    public int questionNumber=1;
     
     public Student(){}
     
@@ -85,12 +89,60 @@ public class Student
         
         
     }
-        public ResultSet ShowAllPSTResults()
-        {
         
-        String query="SELECT * FROM Result_PST";
-        ResultSet rs=null;
-        DB_Connection  conn = new DB_Connection ();
+        
+        
+        
+        public ResultSet GetNextQuestion(String tableName)
+        {
+            
+            String query="";
+            
+            Random rand = new Random();
+            int randomNumber=0;
+            String myRandomNumber=null;
+ 
+            
+            DB_Connection  conn = new DB_Connection ();
+            
+            
+            
+            if(questionNumber < 11)
+            {
+                    
+             //for saving randomnumber generated to array so that we can check next time
+            //whether that same question has been asked to student or not
+             for (int i=questionNumber;i<=questionNumber;i++)
+             {
+                 randomNumber = rand.nextInt(25);
+                 QID[i-1]=randomNumber;
+        
+             }
+             
+             
+             
+             //for checking whether current random number generated exists in array or not
+             for(int i=0;i<=10;i++)
+             {
+                 if (QID[i]!=randomNumber && QID[i]!=0)
+                 {
+                    myRandomNumber = String.valueOf(randomNumber);
+                 }
+                 else
+                 {
+                     randomNumber = rand.nextInt(25);
+                     myRandomNumber = String.valueOf(randomNumber);
+                     QID[questionNumber-1]=randomNumber;
+                     
+                 }
+             }
+             questionNumber++;
+            }
+              
+             
+            query="SELECT * FROM "+tableName+" WHERE QID="+myRandomNumber;
+            ResultSet rs=null;
+                    
         
         try
         {
@@ -111,6 +163,10 @@ public class Student
         
         return rs;
     }
+        
+        
+        
+        
         public ResultSet ShowAllMathsResults()
     {
         
@@ -137,6 +193,34 @@ public class Student
         
         return rs;
     }
+        
+        public ResultSet ShowAllPSTResults()
+    {
+        
+        String query="SELECT * FROM Result_PST";
+        ResultSet rs=null;
+        DB_Connection  conn = new DB_Connection ();
+        
+        try
+        {
+        
+        
+        conn.MakeConnection();
+        
+        rs = conn.RunSelectQuery(query);
+
+     
+        }
+        catch (Exception e)
+        {
+                
+        }
+        
+
+        
+        return rs;
+    }
+        
         public ResultSet ShowAllENGResults()
     {
         

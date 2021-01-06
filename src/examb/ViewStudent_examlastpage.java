@@ -11,11 +11,19 @@ package examb;
  */
 public class ViewStudent_examlastpage extends javax.swing.JFrame {
 
-    /**
-     * Creates new form ViewStudent_examlastpage
-     */
-    public ViewStudent_examlastpage() {
+    
+    Student student;
+    
+    public ViewStudent_examlastpage()
+    {
         initComponents();
+        this.setLocationRelativeTo(null); // for centering form on screen
+        this.setDefaultCloseOperation(DISPOSE_ON_CLOSE); //does not close app on exit of window
+    }
+    public ViewStudent_examlastpage(Student student)
+    {
+        initComponents();
+        this.student=student;
     }
 
     /**
