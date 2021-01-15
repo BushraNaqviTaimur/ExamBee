@@ -58,6 +58,7 @@ public class ViewTeacherMainPage extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         label_profile = new javax.swing.JTextArea();
+        jButton1 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -126,8 +127,19 @@ public class ViewTeacherMainPage extends javax.swing.JFrame {
         getContentPane().add(jScrollPane1);
         jScrollPane1.setBounds(452, 58, 290, 142);
 
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/examb/examb_images/backarrow copy.png"))); // NOI18N
+        jButton1.setText("jButton1");
+        jButton1.setBorderPainted(false);
+        jButton1.setContentAreaFilled(false);
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton1);
+        jButton1.setBounds(40, 380, 110, 50);
+
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/examb/examb_images/bg.jpg"))); // NOI18N
-        jLabel2.setBounds(new java.awt.Rectangle(0, -110, 770, 710));
         jLabel2.setMaximumSize(new java.awt.Dimension(5169, 3200));
         jLabel2.setMinimumSize(new java.awt.Dimension(5169, 3200));
         jLabel2.setPreferredSize(new java.awt.Dimension(5169, 3200));
@@ -154,6 +166,12 @@ public class ViewTeacherMainPage extends javax.swing.JFrame {
                 new ViewTeacher_EnrollStudent(teacher).setVisible(true);
                 this.setVisible(false); //to close current window
     }//GEN-LAST:event_btnenrollstudentActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        this.setVisible(false);
+        new ViewTeacherLoginPage().setVisible(true);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -195,6 +213,7 @@ public class ViewTeacherMainPage extends javax.swing.JFrame {
     private javax.swing.JButton btnAddnewQuestions;
     private javax.swing.JButton btnenrollstudent;
     private javax.swing.JButton btnresult;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;

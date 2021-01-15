@@ -39,6 +39,7 @@ public class ViewTeacherSignUP extends javax.swing.JFrame {
         tf_name = new javax.swing.JTextField();
         tf_pass = new javax.swing.JTextField();
         btnSignUp = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
 
         jTextField3.setText("jTextField1");
@@ -91,8 +92,19 @@ public class ViewTeacherSignUP extends javax.swing.JFrame {
         getContentPane().add(btnSignUp);
         btnSignUp.setBounds(287, 334, 199, 64);
 
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/examb/examb_images/backarrow copy.png"))); // NOI18N
+        jButton1.setText("jButton1");
+        jButton1.setBorderPainted(false);
+        jButton1.setContentAreaFilled(false);
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton1);
+        jButton1.setBounds(40, 370, 120, 50);
+
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/examb/examb_images/bg.jpg"))); // NOI18N
-        jLabel4.setBounds(new java.awt.Rectangle(0, -110, 770, 710));
         jLabel4.setMaximumSize(new java.awt.Dimension(5169, 3200));
         jLabel4.setMinimumSize(new java.awt.Dimension(5169, 3200));
         jLabel4.setPreferredSize(new java.awt.Dimension(5169, 3200));
@@ -116,6 +128,12 @@ public class ViewTeacherSignUP extends javax.swing.JFrame {
     private void tf_nameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tf_nameActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_tf_nameActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        this.setVisible(false);
+        new ViewTeacherLoginPage().setVisible(true);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -155,6 +173,7 @@ public class ViewTeacherSignUP extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnSignUp;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

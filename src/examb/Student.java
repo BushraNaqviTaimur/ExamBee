@@ -93,9 +93,7 @@ public class Student
         
     }
         
-        
-        
-        
+       
         public ResultSet GetNextQuestion(String tableName)
         {
             
@@ -104,13 +102,10 @@ public class Student
             Random rand = new Random();
             int randomNumber=0;
             String myRandomNumber=null;
- 
-            
+          
             DB_Connection  conn = new DB_Connection ();
             
-            
-            
-            if(questionNumber < 11)
+            if(questionNumber < 12)
             {
                     
              //for saving randomnumber generated to array so that we can check next time
@@ -119,25 +114,34 @@ public class Student
              {
                  randomNumber = rand.nextInt(20);
                  
-                 if(randomNumber!=0)
+                 if(randomNumber==0)
+                     randomNumber = rand.nextInt(20);
+                 else
                     QID[i-1]=randomNumber;
         
              }
-             
-             
-             
+                         
              //for checking whether current random number generated exists in array or not
-             for(int i=0;i<10;i++)
+             for(int i=0;i<questionNumber;i++)
              {
-                 if (QID[i]!=randomNumber && QID[i]!=0)
+                 if (QID[i]!=randomNumber)
                  {
                     myRandomNumber = String.valueOf(randomNumber);
                  }
                  else
                  {
                      randomNumber = rand.nextInt(20);
-                     myRandomNumber = String.valueOf(randomNumber);
-                     QID[questionNumber-1]=randomNumber;
+                     
+                     if(randomNumber==0 || randomNumber==QID[i])
+                     {       
+                        randomNumber = rand.nextInt(20);
+                        QID[questionNumber-1]=randomNumber;
+                        myRandomNumber = String.valueOf(randomNumber);
+                     }
+                     else
+                     {
+                        myRandomNumber = String.valueOf(randomNumber);
+                     }
                      
                  }
              }

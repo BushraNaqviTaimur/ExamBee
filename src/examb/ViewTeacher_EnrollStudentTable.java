@@ -163,6 +163,7 @@ public class ViewTeacher_EnrollStudentTable extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jButton1 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable_showallstudents = new javax.swing.JTable();
         jTextField1 = new javax.swing.JTextField();
@@ -182,6 +183,18 @@ public class ViewTeacher_EnrollStudentTable extends javax.swing.JFrame {
         setResizable(false);
         getContentPane().setLayout(null);
 
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/examb/examb_images/backarrow copy.png"))); // NOI18N
+        jButton1.setText("jButton1");
+        jButton1.setBorderPainted(false);
+        jButton1.setContentAreaFilled(false);
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton1);
+        jButton1.setBounds(60, 410, 130, 60);
+
         jTable_showallstudents.setBackground(new java.awt.Color(0, 0, 204));
         jTable_showallstudents.setForeground(new java.awt.Color(255, 255, 255));
         jTable_showallstudents.setModel(new javax.swing.table.DefaultTableModel(
@@ -198,7 +211,7 @@ public class ViewTeacher_EnrollStudentTable extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jTable_showallstudents);
 
         getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(0, 100, 770, 390);
+        jScrollPane1.setBounds(0, 80, 770, 320);
         getContentPane().add(jTextField1);
         jTextField1.setBounds(20, 28, 473, 50);
 
@@ -395,6 +408,12 @@ public class ViewTeacher_EnrollStudentTable extends javax.swing.JFrame {
         this.jButton1_searchActionPerformed(evt);
     }//GEN-LAST:event_jMenuItem_refreshActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        this.setVisible(false);
+        new ViewTeacher_EnrollStudent(teacher).setVisible(true);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -431,6 +450,7 @@ public class ViewTeacher_EnrollStudentTable extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton1_search;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu1_file;

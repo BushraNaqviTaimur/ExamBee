@@ -88,7 +88,7 @@ public class ViewStudent_Exam extends javax.swing.JFrame {
         TimerTask task;
         task = new TimerTask()
         {
-            int i=20; //because in 15mins there are 900secs
+            int i=900; //because in 15mins there are 900secs
             public void run()
             {
                 if(i>=0)
@@ -299,7 +299,7 @@ public class ViewStudent_Exam extends javax.swing.JFrame {
             //clearing radio button selection
         buttonGroup1.clearSelection();
         
-      if (student.questionNumber==11)
+      if (student.questionNumber==12)
         {
             timer.cancel();
             new ViewStudent_examlastpage(student, count).setVisible(true);

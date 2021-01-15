@@ -39,6 +39,7 @@ public class ViewTeacherLoginPage extends javax.swing.JFrame {
         btnsignin = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jPasswordField = new javax.swing.JPasswordField();
+        jButton1 = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -107,6 +108,18 @@ public class ViewTeacherLoginPage extends javax.swing.JFrame {
         getContentPane().add(jPasswordField);
         jPasswordField.setBounds(260, 160, 290, 50);
 
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/examb/examb_images/backarrow copy.png"))); // NOI18N
+        jButton1.setText("jButton1");
+        jButton1.setBorderPainted(false);
+        jButton1.setContentAreaFilled(false);
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton1);
+        jButton1.setBounds(50, 420, 140, 60);
+
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/examb/examb_images/bg.jpg"))); // NOI18N
         jLabel4.setMaximumSize(new java.awt.Dimension(5169, 3200));
         jLabel4.setMinimumSize(new java.awt.Dimension(5169, 3200));
@@ -149,6 +162,12 @@ public class ViewTeacherLoginPage extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(rootPane, "Incorrect username or password, please try again!");
     }//GEN-LAST:event_btnsigninActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        this.setVisible(false);
+        new ViewStartpage().setVisible(true);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -188,6 +207,7 @@ public class ViewTeacherLoginPage extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnsignin;
     private javax.swing.JButton btnsignup;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

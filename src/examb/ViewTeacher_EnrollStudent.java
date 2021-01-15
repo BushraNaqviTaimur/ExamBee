@@ -39,6 +39,7 @@ public class ViewTeacher_EnrollStudent extends javax.swing.JFrame {
         btnpst = new javax.swing.JButton();
         btnenglish = new javax.swing.JButton();
         btnmath = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -82,6 +83,18 @@ public class ViewTeacher_EnrollStudent extends javax.swing.JFrame {
         getContentPane().add(btnmath);
         btnmath.setBounds(231, 147, 209, 75);
 
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/examb/examb_images/backarrow copy.png"))); // NOI18N
+        jButton1.setText("jButton1");
+        jButton1.setBorderPainted(false);
+        jButton1.setContentAreaFilled(false);
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton1);
+        jButton1.setBounds(40, 360, 130, 60);
+
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/examb/examb_images/bg.jpg"))); // NOI18N
         jLabel2.setMaximumSize(new java.awt.Dimension(5196, 3200));
         jLabel2.setMinimumSize(new java.awt.Dimension(5196, 3200));
@@ -109,6 +122,12 @@ public class ViewTeacher_EnrollStudent extends javax.swing.JFrame {
                     new ViewTeacher_EnrollStudentTable(teacher).setVisible(true);
                     this.setVisible(false); //to close current window
     }//GEN-LAST:event_btnenglishActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        this.setVisible(false);
+        new ViewTeacherMainPage(teacher).setVisible(true);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -149,6 +168,7 @@ public class ViewTeacher_EnrollStudent extends javax.swing.JFrame {
     private javax.swing.JButton btnenglish;
     private javax.swing.JButton btnmath;
     private javax.swing.JButton btnpst;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     // End of variables declaration//GEN-END:variables

@@ -48,6 +48,7 @@ public class ViewTeacher_CreateExam extends javax.swing.JFrame {
         Tf_QID = new javax.swing.JTextField();
         TF_c = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -122,6 +123,18 @@ public class ViewTeacher_CreateExam extends javax.swing.JFrame {
         getContentPane().add(jLabel6);
         jLabel6.setBounds(240, 370, 90, 40);
 
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/examb/examb_images/backarrow copy.png"))); // NOI18N
+        jButton1.setText("jButton1");
+        jButton1.setBorderPainted(false);
+        jButton1.setContentAreaFilled(false);
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton1);
+        jButton1.setBounds(50, 420, 120, 50);
+
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/examb/examb_images/bg.jpg"))); // NOI18N
         jLabel7.setMaximumSize(new java.awt.Dimension(5169, 3200));
         jLabel7.setMinimumSize(new java.awt.Dimension(5169, 3200));
@@ -148,6 +161,12 @@ public class ViewTeacher_CreateExam extends javax.swing.JFrame {
        exam.InsertQuestions();
        JOptionPane.showMessageDialog(rootPane, "Question added successfully.");
     }//GEN-LAST:event_btnaddquestionActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        this.setVisible(false);
+        new ViewTeacherMainPage(teacher).setVisible(true);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -193,6 +212,7 @@ public class ViewTeacher_CreateExam extends javax.swing.JFrame {
     private javax.swing.JTextField TF_r;
     private javax.swing.JTextField Tf_QID;
     private javax.swing.JButton btnaddquestion;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

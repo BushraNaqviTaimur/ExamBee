@@ -149,6 +149,7 @@ public class ViewTeacher_CheckResult extends javax.swing.JFrame {
         jTable1_showresult = new javax.swing.JTable();
         jTextField1 = new javax.swing.JTextField();
         jButton1_search = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1_file = new javax.swing.JMenu();
@@ -179,7 +180,7 @@ public class ViewTeacher_CheckResult extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jTable1_showresult);
 
         getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(0, 65, 790, 400);
+        jScrollPane1.setBounds(0, 80, 790, 350);
 
         jTextField1.setFont(new java.awt.Font(".AppleSystemUIFont", 0, 14)); // NOI18N
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
@@ -201,6 +202,18 @@ public class ViewTeacher_CheckResult extends javax.swing.JFrame {
         });
         getContentPane().add(jButton1_search);
         jButton1_search.setBounds(631, 9, 110, 50);
+
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/examb/examb_images/backarrow copy.png"))); // NOI18N
+        jButton1.setText("jButton1");
+        jButton1.setBorderPainted(false);
+        jButton1.setContentAreaFilled(false);
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton1);
+        jButton1.setBounds(80, 440, 130, 40);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/examb/examb_images/bg.jpg"))); // NOI18N
         jLabel1.setText("jLabel1");
@@ -283,6 +296,12 @@ public class ViewTeacher_CheckResult extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField1ActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        this.setVisible(false);
+        new ViewTeacherMainPage(teacher).setVisible(true);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -319,6 +338,7 @@ public class ViewTeacher_CheckResult extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton1_search;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu1_file;

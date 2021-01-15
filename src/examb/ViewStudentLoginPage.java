@@ -34,6 +34,7 @@ public class ViewStudentLoginPage extends javax.swing.JFrame {
         btnjoin = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jTextField2_s = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -59,6 +60,18 @@ public class ViewStudentLoginPage extends javax.swing.JFrame {
         jLabel1.setBounds(100, 190, 250, 57);
         getContentPane().add(jTextField2_s);
         jTextField2_s.setBounds(390, 180, 260, 70);
+
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/examb/examb_images/backarrow copy.png"))); // NOI18N
+        jButton1.setText("jButton1");
+        jButton1.setBorderPainted(false);
+        jButton1.setContentAreaFilled(false);
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton1);
+        jButton1.setBounds(70, 410, 110, 50);
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/examb/examb_images/bg.jpg"))); // NOI18N
         jLabel2.setText("jLabel2");
@@ -100,6 +113,12 @@ public class ViewStudentLoginPage extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnjoinActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        this.setVisible(false);
+        new ViewStartpage().setVisible(true);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -137,6 +156,7 @@ public class ViewStudentLoginPage extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnjoin;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JTextField jTextField2_s;
