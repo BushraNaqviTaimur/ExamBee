@@ -149,28 +149,49 @@ public class ViewTeacher_CheckResult extends javax.swing.JFrame {
         jTable1_showresult = new javax.swing.JTable();
         jTextField1 = new javax.swing.JTextField();
         jButton1_search = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1_file = new javax.swing.JMenu();
         jMenuItem_refresh = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBounds(new java.awt.Rectangle(100, 500, 770, 522));
+        setPreferredSize(new java.awt.Dimension(770, 522));
+        setResizable(false);
+        getContentPane().setLayout(null);
 
+        jTable1_showresult.setBackground(new java.awt.Color(0, 0, 102));
+        jTable1_showresult.setFont(new java.awt.Font(".AppleSystemUIFont", 0, 14)); // NOI18N
+        jTable1_showresult.setForeground(new java.awt.Color(255, 255, 255));
         jTable1_showresult.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
             },
             new String [] {
-                "Student_ID", "Student Name", "Total Marks", "Obtained Marks", "Grade"
+                "Student_ID", "Student Name", "Total Marks", "Obtained Marks"
             }
         ));
         jScrollPane1.setViewportView(jTable1_showresult);
 
+        getContentPane().add(jScrollPane1);
+        jScrollPane1.setBounds(0, 65, 790, 400);
+
+        jTextField1.setFont(new java.awt.Font(".AppleSystemUIFont", 0, 14)); // NOI18N
+        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jTextField1);
+        jTextField1.setBounds(34, 9, 579, 50);
+
         jButton1_search.setBackground(new java.awt.Color(255, 255, 255));
+        jButton1_search.setFont(new java.awt.Font(".AppleSystemUIFont", 1, 18)); // NOI18N
         jButton1_search.setText("Search");
         jButton1_search.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jButton1_search.addActionListener(new java.awt.event.ActionListener() {
@@ -178,9 +199,20 @@ public class ViewTeacher_CheckResult extends javax.swing.JFrame {
                 jButton1_searchActionPerformed(evt);
             }
         });
+        getContentPane().add(jButton1_search);
+        jButton1_search.setBounds(631, 9, 110, 50);
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/examb/examb_images/bg.jpg"))); // NOI18N
+        jLabel1.setText("jLabel1");
+        jLabel1.setMaximumSize(new java.awt.Dimension(5169, 3200));
+        jLabel1.setMinimumSize(new java.awt.Dimension(5169, 3200));
+        jLabel1.setPreferredSize(new java.awt.Dimension(5169, 3200));
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(0, -110, 790, 710);
 
         jMenuBar1.setBackground(new java.awt.Color(121, 228, 255));
 
+        jMenu1_file.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jMenu1_file.setText("File");
 
         jMenuItem_refresh.setText("Refresh");
@@ -194,30 +226,6 @@ public class ViewTeacher_CheckResult extends javax.swing.JFrame {
         jMenuBar1.add(jMenu1_file);
 
         setJMenuBar(jMenuBar1);
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(34, 34, 34)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 579, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jButton1_search, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 40, Short.MAX_VALUE))
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap(9, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1_search, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 322, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(74, 74, 74))
-        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -271,6 +279,10 @@ public class ViewTeacher_CheckResult extends javax.swing.JFrame {
         this.jButton1_searchActionPerformed(evt);
     }//GEN-LAST:event_jMenuItem_refreshActionPerformed
 
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -308,6 +320,7 @@ public class ViewTeacher_CheckResult extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1_search;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu1_file;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem_refresh;

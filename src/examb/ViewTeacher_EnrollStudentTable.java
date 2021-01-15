@@ -167,6 +167,7 @@ public class ViewTeacher_EnrollStudentTable extends javax.swing.JFrame {
         jTable_showallstudents = new javax.swing.JTable();
         jTextField1 = new javax.swing.JTextField();
         jButton1_search = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1_file = new javax.swing.JMenu();
         jMenuItem_refresh = new javax.swing.JMenuItem();
@@ -176,7 +177,13 @@ public class ViewTeacher_EnrollStudentTable extends javax.swing.JFrame {
         jMenuItem3_delete = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBounds(new java.awt.Rectangle(100, 500, 770, 522));
+        setPreferredSize(new java.awt.Dimension(770, 522));
+        setResizable(false);
+        getContentPane().setLayout(null);
 
+        jTable_showallstudents.setBackground(new java.awt.Color(0, 0, 204));
+        jTable_showallstudents.setForeground(new java.awt.Color(255, 255, 255));
         jTable_showallstudents.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
@@ -190,7 +197,14 @@ public class ViewTeacher_EnrollStudentTable extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(jTable_showallstudents);
 
+        getContentPane().add(jScrollPane1);
+        jScrollPane1.setBounds(0, 100, 770, 390);
+        getContentPane().add(jTextField1);
+        jTextField1.setBounds(20, 28, 473, 50);
+
         jButton1_search.setBackground(new java.awt.Color(255, 255, 255));
+        jButton1_search.setFont(new java.awt.Font(".AppleSystemUIFont", 1, 18)); // NOI18N
+        jButton1_search.setForeground(new java.awt.Color(255, 255, 255));
         jButton1_search.setText("Search");
         jButton1_search.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jButton1_search.addActionListener(new java.awt.event.ActionListener() {
@@ -198,6 +212,15 @@ public class ViewTeacher_EnrollStudentTable extends javax.swing.JFrame {
                 jButton1_searchActionPerformed(evt);
             }
         });
+        getContentPane().add(jButton1_search);
+        jButton1_search.setBounds(519, 28, 157, 50);
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/examb/examb_images/bg.jpg"))); // NOI18N
+        jLabel1.setMaximumSize(new java.awt.Dimension(5169, 3200));
+        jLabel1.setMinimumSize(new java.awt.Dimension(5169, 3200));
+        jLabel1.setPreferredSize(new java.awt.Dimension(5169, 3200));
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(0, -110, 770, 710);
 
         jMenuBar1.setBackground(new java.awt.Color(121, 228, 255));
 
@@ -242,29 +265,6 @@ public class ViewTeacher_EnrollStudentTable extends javax.swing.JFrame {
         jMenuBar1.add(jMenu_insert);
 
         setJMenuBar(jMenuBar1);
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 439, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jButton1_search, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 622, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(28, 28, 28)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1_search, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 321, Short.MAX_VALUE))
-        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -432,6 +432,7 @@ public class ViewTeacher_EnrollStudentTable extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1_search;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu1_file;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1_Add;

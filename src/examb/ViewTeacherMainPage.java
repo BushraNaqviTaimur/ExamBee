@@ -58,85 +58,81 @@ public class ViewTeacherMainPage extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         label_profile = new javax.swing.JTextArea();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBounds(new java.awt.Rectangle(100, 500, 770, 522));
+        setPreferredSize(new java.awt.Dimension(770, 522));
+        setResizable(false);
+        getContentPane().setLayout(null);
 
+        label_welcome.setFont(new java.awt.Font(".AppleSystemUIFont", 1, 24)); // NOI18N
+        label_welcome.setForeground(new java.awt.Color(255, 255, 255));
         label_welcome.setText("Welcome,");
+        getContentPane().add(label_welcome);
+        label_welcome.setBounds(36, 80, 300, 100);
 
+        btnenrollstudent.setFont(new java.awt.Font(".AppleSystemUIFont", 1, 18)); // NOI18N
+        btnenrollstudent.setForeground(new java.awt.Color(255, 255, 255));
         btnenrollstudent.setText("Enroll Students");
+        btnenrollstudent.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnenrollstudent.setContentAreaFilled(false);
         btnenrollstudent.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnenrollstudentActionPerformed(evt);
             }
         });
+        getContentPane().add(btnenrollstudent);
+        btnenrollstudent.setBounds(210, 212, 251, 76);
 
+        btnAddnewQuestions.setFont(new java.awt.Font(".AppleSystemUIFont", 1, 18)); // NOI18N
+        btnAddnewQuestions.setForeground(new java.awt.Color(255, 255, 255));
         btnAddnewQuestions.setText("Add new Questions");
+        btnAddnewQuestions.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnAddnewQuestions.setContentAreaFilled(false);
         btnAddnewQuestions.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAddnewQuestionsActionPerformed(evt);
             }
         });
+        getContentPane().add(btnAddnewQuestions);
+        btnAddnewQuestions.setBounds(210, 294, 251, 67);
 
+        btnresult.setFont(new java.awt.Font(".AppleSystemUIFont", 1, 18)); // NOI18N
+        btnresult.setForeground(new java.awt.Color(255, 255, 255));
         btnresult.setText("Result");
+        btnresult.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnresult.setContentAreaFilled(false);
         btnresult.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnresultActionPerformed(evt);
             }
         });
+        getContentPane().add(btnresult);
+        btnresult.setBounds(210, 367, 251, 73);
 
-        jLabel1.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
-        jLabel1.setText("Teacher Profile");
+        jLabel1.setFont(new java.awt.Font(".AppleSystemUIFont", 1, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("   Teacher Profile");
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(480, 20, 251, 40);
 
         label_profile.setEditable(false);
-        label_profile.setBackground(new java.awt.Color(204, 204, 204));
         label_profile.setColumns(20);
+        label_profile.setFont(new java.awt.Font(".AppleSystemUIFont", 1, 14)); // NOI18N
         label_profile.setRows(5);
         jScrollPane1.setViewportView(label_profile);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(240, 240, 240)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btnresult, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnAddnewQuestions, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnenrollstudent, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(36, 36, 36)
-                .addComponent(label_welcome, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 373, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(68, 68, 68))))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(80, 80, 80)
-                        .addComponent(label_welcome, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addContainerGap(75, Short.MAX_VALUE)
-                        .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)))
-                .addComponent(btnenrollstudent, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btnAddnewQuestions, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnresult, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(57, 57, 57))
-        );
+        getContentPane().add(jScrollPane1);
+        jScrollPane1.setBounds(452, 58, 290, 142);
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/examb/examb_images/bg.jpg"))); // NOI18N
+        jLabel2.setBounds(new java.awt.Rectangle(0, -110, 770, 710));
+        jLabel2.setMaximumSize(new java.awt.Dimension(5169, 3200));
+        jLabel2.setMinimumSize(new java.awt.Dimension(5169, 3200));
+        jLabel2.setPreferredSize(new java.awt.Dimension(5169, 3200));
+        getContentPane().add(jLabel2);
+        jLabel2.setBounds(0, -110, 770, 710);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -200,6 +196,7 @@ public class ViewTeacherMainPage extends javax.swing.JFrame {
     private javax.swing.JButton btnenrollstudent;
     private javax.swing.JButton btnresult;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea label_profile;
     private javax.swing.JLabel label_welcome;

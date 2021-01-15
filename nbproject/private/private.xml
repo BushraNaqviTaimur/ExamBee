@@ -3,11 +3,9 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/Users/bushra/Documents/Java%20Projects/EXAMB/src/examb/ViewStudent_examlastpage.java</file>
-            <file>file:/Users/bushra/Documents/Java%20Projects/EXAMB/src/examb/ViewStudent_MainPage.java</file>
-            <file>file:/Users/bushra/Documents/Java%20Projects/EXAMB/src/examb/ViewStudent_Exam.java</file>
-            <file>file:/Users/bushra/Documents/Java%20Projects/EXAMB/src/examb/Student.java</file>
-            <file>file:/Users/bushra/Documents/Java%20Projects/EXAMB/src/examb/ViewStudentLoginPage.java</file>
+            <file>file:/Users/bushra/Documents/Java%20Projects/EXAMB/src/examb/ViewTeacher_EnrollStudentTable.java</file>
+            <file>file:/Users/bushra/Documents/Java%20Projects/EXAMB/src/examb/ViewStartpage.java</file>
+            <file>file:/Users/bushra/Documents/Java%20Projects/EXAMB/src/examb/ViewTeacher_EnrollStudent.java</file>
         </group>
     </open-files>
 </project-private>

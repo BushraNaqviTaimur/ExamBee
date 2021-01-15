@@ -33,43 +33,42 @@ public class ViewStartpage extends javax.swing.JFrame {
         buttonGroup1 = new javax.swing.ButtonGroup();
         btnTeacher = new javax.swing.JButton();
         btnStudent = new javax.swing.JButton();
+        jLabel1_bg = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBounds(new java.awt.Rectangle(100, 500, 770, 522));
+        setLocation(new java.awt.Point(100, 500));
+        setPreferredSize(new java.awt.Dimension(770, 522));
+        setResizable(false);
+        getContentPane().setLayout(null);
 
+        btnTeacher.setBackground(new java.awt.Color(255, 255, 255));
+        btnTeacher.setFont(new java.awt.Font(".AppleSystemUIFont", 1, 18)); // NOI18N
         btnTeacher.setText("Teacher");
         btnTeacher.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnTeacherActionPerformed(evt);
             }
         });
+        getContentPane().add(btnTeacher);
+        btnTeacher.setBounds(240, 190, 270, 60);
 
+        btnStudent.setFont(new java.awt.Font(".AppleSystemUIFont", 1, 18)); // NOI18N
         btnStudent.setText("Student");
         btnStudent.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnStudentActionPerformed(evt);
             }
         });
+        getContentPane().add(btnStudent);
+        btnStudent.setBounds(240, 250, 270, 60);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(253, 253, 253)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(btnStudent, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnTeacher, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(276, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(156, 156, 156)
-                .addComponent(btnTeacher, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btnStudent, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(142, Short.MAX_VALUE))
-        );
+        jLabel1_bg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/examb/examb_images/bg.jpg"))); // NOI18N
+        jLabel1_bg.setMaximumSize(new java.awt.Dimension(5169, 3200));
+        jLabel1_bg.setMinimumSize(new java.awt.Dimension(5169, 3200));
+        jLabel1_bg.setPreferredSize(new java.awt.Dimension(5169, 3200));
+        getContentPane().add(jLabel1_bg);
+        jLabel1_bg.setBounds(0, -110, 770, 710);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -126,5 +125,6 @@ public class ViewStartpage extends javax.swing.JFrame {
     private javax.swing.JButton btnStudent;
     private javax.swing.JButton btnTeacher;
     private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.JLabel jLabel1_bg;
     // End of variables declaration//GEN-END:variables
 }

@@ -14,6 +14,9 @@ public class Student
     String COURSE_ID;
     String Student_ID;
     String name;
+    int  Total_Marks = 50;
+    int  Obtained_Marks;
+    
     
     int QID[]= new int[11]; //because 10 questions are asked in exams
     public int questionNumber=1;
@@ -114,15 +117,17 @@ public class Student
             //whether that same question has been asked to student or not
              for (int i=questionNumber;i<=questionNumber;i++)
              {
-                 randomNumber = rand.nextInt(25);
-                 QID[i-1]=randomNumber;
+                 randomNumber = rand.nextInt(20);
+                 
+                 if(randomNumber!=0)
+                    QID[i-1]=randomNumber;
         
              }
              
              
              
              //for checking whether current random number generated exists in array or not
-             for(int i=0;i<=10;i++)
+             for(int i=0;i<10;i++)
              {
                  if (QID[i]!=randomNumber && QID[i]!=0)
                  {
@@ -130,7 +135,7 @@ public class Student
                  }
                  else
                  {
-                     randomNumber = rand.nextInt(25);
+                     randomNumber = rand.nextInt(20);
                      myRandomNumber = String.valueOf(randomNumber);
                      QID[questionNumber-1]=randomNumber;
                      
@@ -309,6 +314,42 @@ public class Student
             } 
             
         return rs;
+    }
+    
+    public void InsertData( Student data, String tableName)
+    
+    {
+        String query = "INSERT INTO " +tableName+ " (Student_ID,Name,Total_Marks,Obtained_Marks)" + 
+                "VALUES ('"+data.Student_ID+"', '"+data.name+"', '"+data.Total_Marks+"','"+data.Obtained_Marks+"')";
+        DB_Connection  conn = new DB_Connection ();
+     
+        try
+        {
+           conn.MakeConnection();
+
+           conn.RunInsertQuery(query);
+
+           
+        }
+        catch (Exception e)
+        {
+
+        }
+        finally
+        {
+            try
+            {
+                conn.CloseConnection();
+            }
+            catch (Exception e)
+            {
+                        
+            }
+        }
+        
+        
+    
+    
     }
     
         

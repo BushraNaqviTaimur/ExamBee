@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package examb;
-
+import java.sql.ResultSet;
 /**
  *
  * @author bushra
@@ -13,6 +13,11 @@ public class ViewStudent_examlastpage extends javax.swing.JFrame {
 
     
     Student student;
+    int finalResult;
+    ResultSet rs=null;
+    
+    String units[] = { "zero", "one", "two", "three", "four", "five","six", "seven", "eight", "nine", "ten", "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "eighteen", "nineteen" };
+    String tens[] = { "zero", "ten", "twenty", "thirty", "forty", "fifty", "sixty", "seventy", "eighty", "ninety" };
     
     public ViewStudent_examlastpage()
     {
@@ -20,11 +25,62 @@ public class ViewStudent_examlastpage extends javax.swing.JFrame {
         this.setLocationRelativeTo(null); // for centering form on screen
         this.setDefaultCloseOperation(DISPOSE_ON_CLOSE); //does not close app on exit of window
     }
-    public ViewStudent_examlastpage(Student student)
+    public ViewStudent_examlastpage(Student student, int finalResult)
     {
         initComponents();
         this.student=student;
+        this.finalResult = finalResult;
+        
+      
+        lblResult.setText(String.valueOf(finalResult));
+        
+        lblResultInWords.setText("You scored: "+NumberToWords(finalResult)+" out of fifty.");
+        
+        
+        student.Obtained_Marks= finalResult;
+        if(student.COURSE_ID.equals("PST03"))
+        {
+        student.InsertData(student,"Result_PST");
+        }
+        if(student.COURSE_ID.equals("Math01"))
+        {
+        student.InsertData(student,"Result_Maths");
+        }
+        if(student.COURSE_ID.equals("English02"))
+        {
+        student.InsertData(student,"Result_English");
+        }
     }
+    
+ 
+        String NumberToWords(int number)
+        {
+         if (number == 0)
+            return "zero";
+
+        String words = "";
+
+
+        if ((number / 100) > 0)
+        {
+            words += NumberToWords(number / 100) + " hundred ";
+            number %= 100;
+        }
+
+        if (number > 0)
+        {
+            if (number < 20)
+                words += units[number];
+            else
+            {
+                words += tens[number / 10];
+                if ((number % 10) > 0)
+                    words += "-" + units[number % 10];
+            }
+        }
+
+        return words;
+         }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -36,37 +92,94 @@ public class ViewStudent_examlastpage extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
+        lblResult = new javax.swing.JLabel();
+        btndone = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        lblResultInWords = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBounds(new java.awt.Rectangle(100, 500, 770, 522));
+        setPreferredSize(new java.awt.Dimension(770, 522));
+        setResizable(false);
+        getContentPane().setLayout(null);
 
-        jLabel1.setText("Final Score");
+        jLabel1.setFont(new java.awt.Font(".AppleSystemUIFont", 1, 36)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("Total Marks");
+        jLabel1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(150, 70, 350, 60);
 
-        jLabel2.setText("jLabel2");
+        lblResult.setFont(new java.awt.Font(".AppleSystemUIFont", 1, 36)); // NOI18N
+        lblResult.setForeground(new java.awt.Color(255, 0, 51));
+        lblResult.setText("    ");
+        lblResult.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        getContentPane().add(lblResult);
+        lblResult.setBounds(530, 140, 110, 80);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(44, 44, 44)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(36, 36, 36)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(78, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(196, 196, 196)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(202, Short.MAX_VALUE))
-        );
+        btndone.setFont(new java.awt.Font(".AppleSystemUIFont", 1, 36)); // NOI18N
+        btndone.setForeground(new java.awt.Color(255, 255, 255));
+        btndone.setText("DONE");
+        btndone.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btndone.setContentAreaFilled(false);
+        btndone.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btndoneActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btndone);
+        btndone.setBounds(520, 380, 210, 80);
+
+        jLabel3.setFont(new java.awt.Font(".AppleSystemUIFont", 1, 36)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setText("Final Score");
+        jLabel3.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        getContentPane().add(jLabel3);
+        jLabel3.setBounds(150, 140, 350, 80);
+
+        jLabel5.setFont(new java.awt.Font(".AppleSystemUIFont", 1, 36)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setText("   50");
+        jLabel5.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        getContentPane().add(jLabel5);
+        jLabel5.setBounds(530, 70, 110, 60);
+
+        lblResultInWords.setFont(new java.awt.Font("Lucida Grande", 3, 18)); // NOI18N
+        lblResultInWords.setForeground(new java.awt.Color(255, 255, 255));
+        lblResultInWords.setText("Result in words goes here..");
+        getContentPane().add(lblResultInWords);
+        lblResultInWords.setBounds(130, 300, 520, 40);
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/examb/examb_images/bg.jpg"))); // NOI18N
+        jLabel2.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jLabel2.setMaximumSize(new java.awt.Dimension(5169, 3200));
+        jLabel2.setMinimumSize(new java.awt.Dimension(5169, 3200));
+        jLabel2.setPreferredSize(new java.awt.Dimension(5169, 3200));
+        getContentPane().add(jLabel2);
+        jLabel2.setBounds(0, 0, 780, 500);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btndoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btndoneActionPerformed
+        // TODO add your handling code here:
+        this.student.Obtained_Marks=finalResult;
+     
+        if(student.COURSE_ID.equals("PST03"))
+        {
+        student.InsertData(student,"Result_PST");
+        }
+        if(student.COURSE_ID.equals("Math01"))
+        {
+        student.InsertData(student,"Result_Maths");
+        }
+        if(student.COURSE_ID.equals("English02"))
+        {
+        student.InsertData(student,"Result_English");
+        }
+    }//GEN-LAST:event_btndoneActionPerformed
 
     /**
      * @param args the command line arguments
@@ -104,7 +217,12 @@ public class ViewStudent_examlastpage extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btndone;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel lblResult;
+    private javax.swing.JLabel lblResultInWords;
     // End of variables declaration//GEN-END:variables
 }

@@ -39,61 +39,55 @@ public class ViewTeacher_EnrollStudent extends javax.swing.JFrame {
         btnpst = new javax.swing.JButton();
         btnenglish = new javax.swing.JButton();
         btnmath = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBounds(new java.awt.Rectangle(100, 500, 770, 522));
+        setPreferredSize(new java.awt.Dimension(770, 522));
+        getContentPane().setLayout(null);
 
+        jLabel1.setFont(new java.awt.Font(".AppleSystemUIFont", 1, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Choose the course for student enrollment.");
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(128, 64, 414, 57);
 
+        btnpst.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
         btnpst.setText("PST");
         btnpst.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnpstActionPerformed(evt);
             }
         });
+        getContentPane().add(btnpst);
+        btnpst.setBounds(231, 234, 209, 75);
 
+        btnenglish.setFont(new java.awt.Font(".AppleSystemUIFont", 1, 18)); // NOI18N
         btnenglish.setText("English");
         btnenglish.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnenglishActionPerformed(evt);
             }
         });
+        getContentPane().add(btnenglish);
+        btnenglish.setBounds(231, 327, 209, 75);
 
+        btnmath.setFont(new java.awt.Font(".AppleSystemUIFont", 1, 18)); // NOI18N
         btnmath.setText("Maths");
         btnmath.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnmathActionPerformed(evt);
             }
         });
+        getContentPane().add(btnmath);
+        btnmath.setBounds(231, 147, 209, 75);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(220, 220, 220)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnmath, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnenglish, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnpst, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(199, Short.MAX_VALUE)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 326, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(126, 126, 126))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(58, 58, 58)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(33, 33, 33)
-                .addComponent(btnmath, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnpst, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btnenglish, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(60, Short.MAX_VALUE))
-        );
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/examb/examb_images/bg.jpg"))); // NOI18N
+        jLabel2.setMaximumSize(new java.awt.Dimension(5196, 3200));
+        jLabel2.setMinimumSize(new java.awt.Dimension(5196, 3200));
+        jLabel2.setPreferredSize(new java.awt.Dimension(5196, 3200));
+        getContentPane().add(jLabel2);
+        jLabel2.setBounds(0, -110, 770, 710);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -156,5 +150,6 @@ public class ViewTeacher_EnrollStudent extends javax.swing.JFrame {
     private javax.swing.JButton btnmath;
     private javax.swing.JButton btnpst;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     // End of variables declaration//GEN-END:variables
 }

@@ -5,6 +5,13 @@
  */
 package examb;
 import java.sql.ResultSet;
+
+import java.util.Timer;
+import java.util.TimerTask;
+
+import javax.swing.JOptionPane;
+
+
 /**
  *
  * @author bushra
@@ -21,6 +28,8 @@ public class ViewStudent_Exam extends javax.swing.JFrame {
     ResultSet rs;
     String result=null;
     int count=0;
+    Timer timer;
+   
     
     public ViewStudent_Exam(Student student)
     {
@@ -28,6 +37,7 @@ public class ViewStudent_Exam extends javax.swing.JFrame {
         this.student=student;
         this.setLocationRelativeTo(null); // for centering form on screen
         this.setDefaultCloseOperation(DISPOSE_ON_CLOSE); //does not close app on exit of window
+        
         
         
         lblScore.setText("Score: 0 / 50");
@@ -71,6 +81,48 @@ public class ViewStudent_Exam extends javax.swing.JFrame {
         }
         
         
+        //for setting up 15mins timer (900 seconds)
+        timer = new Timer();
+        
+        
+        TimerTask task;
+        task = new TimerTask()
+        {
+            int i=20; //because in 15mins there are 900secs
+            public void run()
+            {
+                if(i>=0)
+                {
+                    String time = String.format("%02d:%02d", i/60, i%60); //60 because each minute has 60 seconds
+                    lblTimer.setText("Time Left: " + time);
+                    i--;
+                    
+                }
+                else
+                {
+                    timer.cancel();
+                    
+                    //calculate final result, show messagebox prompt and then show next form of result
+                    JOptionPane.showMessageDialog(rootPane, "Time Limit Exceeded,Exam Over.");
+                    new ViewStudent_examlastpage(student, count).setVisible(true);
+                    ViewStudent_Exam.this.setVisible(false);
+        
+                }
+                
+                
+            }
+            
+            
+        };
+                
+        timer.scheduleAtFixedRate(task, 0, 1000); //0 is delay before each execution of task and 
+                                        //1000 is miliseconds interval between each execution of task
+        
+
+ 
+ 
+
+        
         
     }
 
@@ -91,94 +143,77 @@ public class ViewStudent_Exam extends javax.swing.JFrame {
         rbOptionB = new javax.swing.JRadioButton();
         rbOptionC = new javax.swing.JRadioButton();
         lblScore = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
         lblTimer = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBounds(new java.awt.Rectangle(100, 500, 770, 522));
+        setPreferredSize(new java.awt.Dimension(770, 522));
+        setResizable(false);
+        getContentPane().setLayout(null);
 
-        btnNextQuestion.setText("Next Question");
+        btnNextQuestion.setFont(new java.awt.Font(".AppleSystemUIFont", 1, 18)); // NOI18N
+        btnNextQuestion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/examb/examb_images/nextarrow.png"))); // NOI18N
+        btnNextQuestion.setBorder(null);
+        btnNextQuestion.setContentAreaFilled(false);
         btnNextQuestion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnNextQuestionActionPerformed(evt);
             }
         });
+        getContentPane().add(btnNextQuestion);
+        btnNextQuestion.setBounds(500, 360, 260, 100);
 
-        tfQuestionText.setBackground(new java.awt.Color(204, 204, 204));
+        tfQuestionText.setEditable(false);
+        tfQuestionText.setBackground(javax.swing.UIManager.getDefaults().getColor("Button.background"));
         tfQuestionText.setColumns(20);
+        tfQuestionText.setFont(new java.awt.Font(".AppleSystemUIFont", 1, 24)); // NOI18N
         tfQuestionText.setRows(5);
         jScrollPane1.setViewportView(tfQuestionText);
 
+        getContentPane().add(jScrollPane1);
+        jScrollPane1.setBounds(20, 20, 700, 140);
+
         buttonGroup1.add(rbOptionA);
-        rbOptionA.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
+        rbOptionA.setFont(new java.awt.Font(".AppleSystemUIFont", 1, 18)); // NOI18N
+        rbOptionA.setForeground(new java.awt.Color(255, 255, 255));
         rbOptionA.setText("jRadioButton1");
+        getContentPane().add(rbOptionA);
+        rbOptionA.setBounds(72, 243, 280, 50);
 
         buttonGroup1.add(rbOptionB);
-        rbOptionB.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
+        rbOptionB.setFont(new java.awt.Font(".AppleSystemUIFont", 1, 18)); // NOI18N
+        rbOptionB.setForeground(new java.awt.Color(255, 255, 255));
         rbOptionB.setText("jRadioButton2");
+        getContentPane().add(rbOptionB);
+        rbOptionB.setBounds(476, 243, 270, 50);
 
         buttonGroup1.add(rbOptionC);
-        rbOptionC.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
+        rbOptionC.setFont(new java.awt.Font(".AppleSystemUIFont", 1, 18)); // NOI18N
+        rbOptionC.setForeground(new java.awt.Color(255, 255, 255));
         rbOptionC.setText("jRadioButton3");
+        getContentPane().add(rbOptionC);
+        rbOptionC.setBounds(269, 306, 400, 50);
 
-        lblScore.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
+        lblScore.setFont(new java.awt.Font(".AppleSystemUIFont", 1, 24)); // NOI18N
+        lblScore.setForeground(new java.awt.Color(255, 255, 255));
         lblScore.setText("//count label//");
+        getContentPane().add(lblScore);
+        lblScore.setBounds(490, 160, 210, 70);
 
-        jLabel1.setText("Timer:");
-
+        lblTimer.setFont(new java.awt.Font(".AppleSystemUIFont", 1, 24)); // NOI18N
+        lblTimer.setForeground(new java.awt.Color(255, 51, 51));
         lblTimer.setText("timer counter here");
+        getContentPane().add(lblTimer);
+        lblTimer.setBounds(20, 380, 239, 30);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(72, 72, 72)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(197, 197, 197)
-                        .addComponent(rbOptionC)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(rbOptionA)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(rbOptionB)
-                        .addGap(84, 84, 84))))
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(34, 34, 34)
-                        .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lblTimer)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnNextQuestion, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(16, 16, 16)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 679, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblScore, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(18, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(14, 14, 14)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(lblScore, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(39, 39, 39)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(rbOptionA)
-                    .addComponent(rbOptionB))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
-                .addComponent(rbOptionC)
-                .addGap(48, 48, 48)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnNextQuestion, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1)
-                    .addComponent(lblTimer))
-                .addGap(38, 38, 38))
-        );
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/examb/examb_images/bg.jpg"))); // NOI18N
+        jLabel2.setText("jLabel2");
+        jLabel2.setMaximumSize(new java.awt.Dimension(5169, 3200));
+        jLabel2.setMinimumSize(new java.awt.Dimension(5169, 3200));
+        jLabel2.setPreferredSize(new java.awt.Dimension(5169, 3200));
+        getContentPane().add(jLabel2);
+        jLabel2.setBounds(0, -110, 770, 610);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -246,7 +281,6 @@ public class ViewStudent_Exam extends javax.swing.JFrame {
                 rbOptionA.setText(rs.getString("A"));
                 rbOptionB.setText(rs.getString("B"));               
                 rbOptionC.setText(rs.getString("C"));
-                
                 result=rs.getString("Result");
                 
                 
@@ -267,8 +301,10 @@ public class ViewStudent_Exam extends javax.swing.JFrame {
         
       if (student.questionNumber==11)
         {
-            new ViewStudent_examlastpage(student).setVisible(true);
+            timer.cancel();
+            new ViewStudent_examlastpage(student, count).setVisible(true);
             this.setVisible(false);
+            
         }
         
     }//GEN-LAST:event_btnNextQuestionActionPerformed
@@ -311,7 +347,7 @@ public class ViewStudent_Exam extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnNextQuestion;
     private javax.swing.ButtonGroup buttonGroup1;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblScore;
     private javax.swing.JLabel lblTimer;
