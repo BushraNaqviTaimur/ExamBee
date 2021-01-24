@@ -220,13 +220,14 @@ public class ViewTeacher_EnrollStudentTable extends javax.swing.JFrame {
         jButton1_search.setForeground(new java.awt.Color(255, 255, 255));
         jButton1_search.setText("Search");
         jButton1_search.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jButton1_search.setContentAreaFilled(false);
         jButton1_search.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1_searchActionPerformed(evt);
             }
         });
         getContentPane().add(jButton1_search);
-        jButton1_search.setBounds(519, 28, 157, 50);
+        jButton1_search.setBounds(530, 20, 157, 50);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/examb/examb_images/bg.jpg"))); // NOI18N
         jLabel1.setMaximumSize(new java.awt.Dimension(5169, 3200));

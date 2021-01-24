@@ -14,7 +14,7 @@ public class Student
     String COURSE_ID;
     String Student_ID;
     String name;
-    int  Total_Marks = 50;
+    int Total_Marks = 50;
     int  Obtained_Marks;
     
     

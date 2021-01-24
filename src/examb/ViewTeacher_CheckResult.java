@@ -180,7 +180,7 @@ public class ViewTeacher_CheckResult extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jTable1_showresult);
 
         getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(0, 80, 790, 350);
+        jScrollPane1.setBounds(0, 80, 790, 330);
 
         jTextField1.setFont(new java.awt.Font(".AppleSystemUIFont", 0, 14)); // NOI18N
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
@@ -193,8 +193,10 @@ public class ViewTeacher_CheckResult extends javax.swing.JFrame {
 
         jButton1_search.setBackground(new java.awt.Color(255, 255, 255));
         jButton1_search.setFont(new java.awt.Font(".AppleSystemUIFont", 1, 18)); // NOI18N
+        jButton1_search.setForeground(new java.awt.Color(255, 255, 255));
         jButton1_search.setText("Search");
         jButton1_search.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jButton1_search.setContentAreaFilled(false);
         jButton1_search.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1_searchActionPerformed(evt);
@@ -213,7 +215,7 @@ public class ViewTeacher_CheckResult extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton1);
-        jButton1.setBounds(80, 440, 130, 40);
+        jButton1.setBounds(80, 410, 140, 60);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/examb/examb_images/bg.jpg"))); // NOI18N
         jLabel1.setText("jLabel1");

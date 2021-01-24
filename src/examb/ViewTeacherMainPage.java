@@ -116,7 +116,7 @@ public class ViewTeacherMainPage extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("   Teacher Profile");
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(480, 20, 251, 40);
+        jLabel1.setBounds(430, 20, 251, 40);
 
         label_profile.setEditable(false);
         label_profile.setColumns(20);
@@ -125,7 +125,7 @@ public class ViewTeacherMainPage extends javax.swing.JFrame {
         jScrollPane1.setViewportView(label_profile);
 
         getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(452, 58, 290, 142);
+        jScrollPane1.setBounds(362, 58, 380, 90);
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/examb/examb_images/backarrow copy.png"))); // NOI18N
         jButton1.setText("jButton1");

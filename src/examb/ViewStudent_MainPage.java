@@ -71,9 +71,10 @@ public class ViewStudent_MainPage extends javax.swing.JFrame {
         jLabel1_welcome.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1_welcome.setText("Welcome,");
         getContentPane().add(jLabel1_welcome);
-        jLabel1_welcome.setBounds(57, 120, 290, 90);
+        jLabel1_welcome.setBounds(70, 200, 290, 60);
 
         btnpaper.setFont(new java.awt.Font(".AppleSystemUIFont", 1, 24)); // NOI18N
+        btnpaper.setForeground(new java.awt.Color(255, 255, 255));
         btnpaper.setText("Start Paper");
         btnpaper.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnpaper.addActionListener(new java.awt.event.ActionListener() {

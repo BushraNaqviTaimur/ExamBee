@@ -38,18 +38,7 @@ public class ViewStudent_examlastpage extends javax.swing.JFrame {
         
         
         student.Obtained_Marks= finalResult;
-        if(student.COURSE_ID.equals("PST03"))
-        {
-        student.InsertData(student,"Result_PST");
-        }
-        if(student.COURSE_ID.equals("Math01"))
-        {
-        student.InsertData(student,"Result_Maths");
-        }
-        if(student.COURSE_ID.equals("English02"))
-        {
-        student.InsertData(student,"Result_English");
-        }
+        
     }
     
  
